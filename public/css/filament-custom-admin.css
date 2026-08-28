@@ -1,0 +1,393 @@
+/* Custom premium theme overrides for Filament Admin Dashboard */
+
+/* Font modifications & globally smooth transitions */
+body {
+    font-family: 'Poppins', 'Inter', sans-serif !important;
+    letter-spacing: -0.01em;
+}
+
+/* --- LIGHT MODE ACCENTS & PROFESSIONAL CARD DESIGN --- */
+.fi-sidebar {
+    border-right: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+.fi-topbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Card Styling - Soft shadows and borders */
+.fi-section, 
+.fi-ta-ctn, 
+.fi-wi-stats-overview-stat,
+.fi-wi-widget {
+    border-radius: 16px !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease !important;
+}
+
+.fi-wi-stats-overview-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(250, 204, 21, 0.15) !important;
+    border-color: rgba(250, 204, 21, 0.3) !important;
+}
+
+/* --- DARK MODE OVERRIDES (TAILORED TO SIAP INDONESIA BRAND) --- */
+.dark body {
+    background-color: #080a0f !important;
+    color: #cbd5e1 !important;
+}
+
+.dark .fi-layout {
+    background-color: #080a0f !important;
+}
+
+.dark .fi-sidebar {
+    background-color: #0b0e14 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+.dark .fi-topbar {
+    background-color: rgba(11, 14, 20, 0.8) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Dark Mode Cards */
+.dark .fi-section, 
+.dark .fi-ta-ctn, 
+.dark .fi-ta-empty-state,
+.dark .fi-wi-widget,
+.dark .fi-wi-stats-overview-stat {
+    background-color: #0c101a !important;
+    border: 1px solid rgba(250, 204, 21, 0.08) !important;
+    box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.7) !important;
+}
+
+.dark .fi-wi-stats-overview-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -10px rgba(250, 204, 21, 0.12) !important;
+    border-color: rgba(250, 204, 21, 0.25) !important;
+}
+
+/* Table styling in Dark Mode */
+.dark .fi-ta-header-cell {
+    background-color: rgba(255, 255, 255, 0.01) !important;
+}
+
+.dark .fi-ta-row:hover {
+    background-color: rgba(250, 204, 21, 0.02) !important;
+}
+
+/* Custom scrollbars inside the dashboard */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(250, 204, 21, 0.15);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(250, 204, 21, 0.35);
+}
+
+/* --- SIMPLE PAGE / LOGIN PORTAL REDESIGN --- */
+.fi-simple-layout {
+    background-color: #080a0f !important;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(6, 180, 212, 0.06) 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cpath fill='%233b82f6' fill-opacity='0.08' d='M0,160L48,176C96,192,192,224,288,224C384,224,480,192,576,165.3C672,139,768,117,864,128C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3Cpath fill='%2306b6d4' fill-opacity='0.05' d='M0,224L60,208C120,192,240,160,360,165.3C480,171,600,213,720,213.3C840,213,960,171,1080,149.3C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") !important;
+    background-size: 100% 100%, 100% 100%, 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center bottom !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+@keyframes border-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Glassmorphic card styling (Dark Theme Optimized with rotating golden border) */
+.fi-simple-card {
+    position: relative !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 24px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* The rotating golden gradient track */
+.fi-simple-card::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -50% !important;
+    left: -50% !important;
+    width: 200% !important;
+    height: 200% !important;
+    background: conic-gradient(
+        from 0deg,
+        transparent 50%,
+        #facc15 80%,      /* Yellow gold */
+        #eab308 90%,      /* Amber gold */
+        #fef08a 98%,      /* Bright neon gold */
+        transparent 100%
+    ) !important;
+    animation: border-rotate 4s linear infinite !important;
+    z-index: 1 !important;
+}
+
+/* Inner content masking layer */
+.fi-simple-card::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 2px !important; /* 2px golden border width */
+    background-color: rgba(13, 18, 30, 0.92) !important;
+    backdrop-filter: blur(28px) !important;
+    -webkit-backdrop-filter: blur(28px) !important;
+    border-radius: 22px !important;
+    z-index: 2 !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Push form contents above the pseudo-elements */
+.fi-simple-card > * {
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+.fi-simple-card:hover {
+    box-shadow: 
+        0 30px 70px -10px rgba(0, 0, 0, 0.98),
+        0 0 35px rgba(250, 204, 21, 0.1) !important;
+}
+
+/* Text and Links */
+.fi-simple-card label {
+    color: #e2e8f0 !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+}
+
+.fi-simple-card a {
+    color: #3b82f6 !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-simple-card a:hover {
+    color: #60a5fa !important;
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.4) !important;
+    text-decoration: none !important;
+}
+
+/* Filament Input Wrapper Styles */
+.fi-simple-card .fi-input-wrp {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.fi-simple-card .fi-input-wrp:focus-within {
+    border-color: #3b82f6 !important;
+    background-color: rgba(0, 0, 0, 0.45) !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18), inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.fi-simple-card input {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
+}
+
+.fi-simple-card input::placeholder {
+    color: #64748b !important;
+}
+
+/* Submit Button */
+.fi-simple-card button[type="submit"] {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.02em !important;
+    border-radius: 12px !important;
+    border: none !important;
+    box-shadow: 0 8px 20px -8px rgba(59, 130, 246, 0.5) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+}
+
+.fi-simple-card button[type="submit"]:hover {
+    background: linear-gradient(135deg, #60a5fa, #3b82f6) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 28px -6px rgba(59, 130, 246, 0.7) !important;
+}
+
+.fi-simple-card button[type="submit"]:active {
+    transform: translateY(0) !important;
+}
+
+/* Checkbox customizations */
+.fi-simple-card input[type="checkbox"] {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 4px !important;
+    color: #3b82f6 !important;
+    cursor: pointer !important;
+}
+
+.fi-simple-card input[type="checkbox"]:checked {
+    background-color: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+}
+
+/* Heading Brand Customizations */
+.fi-simple-header-heading {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 1.8rem !important;
+    letter-spacing: -0.02em !important;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.fi-simple-header p,
+.fi-simple-header-subheading {
+    color: #94a3b8 !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+}
+
+.fi-simple-header img {
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4)) !important;
+    transition: all 0.3s ease !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.fi-simple-header img:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+/* Responsive Split Screen Layout for Laptops & Desktops */
+@media (min-width: 1024px) {
+    .fi-simple-layout {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch !important;
+        justify-content: space-between !important;
+        min-height: 100vh !important;
+        padding: 0 !important;
+        background-color: #080a0f !important;
+    }
+    
+    /* Left Panel: Graphic & Brand info with a dark blue/indigo overlay & waves */
+    .fi-simple-layout::before {
+        content: "" !important;
+        display: block !important;
+        width: 52% !important;
+        min-height: 100vh !important;
+        background: 
+            linear-gradient(135deg, rgba(8, 10, 15, 0.88) 0%, rgba(15, 23, 42, 0.92) 100%),
+            url('/assets/images/siapindo/carousel-1.jpg') no-repeat center center !important;
+        background-size: cover !important;
+        border-right: 1px solid rgba(59, 130, 246, 0.2) !important;
+        box-shadow: inset -20px 0 50px rgba(0, 0, 0, 0.6) !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+    
+    /* Text overlay in Left Panel */
+    .fi-simple-layout::after {
+        content: "SIAP INDONESIA\A\A Professional Training & Consulting Partner" !important;
+        white-space: pre-wrap !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 52% !important;
+        height: 100vh !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        z-index: 2 !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 2.2rem !important;
+        font-weight: 800 !important;
+        color: #ffffff !important;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba(59, 130, 246, 0.25) !important;
+        letter-spacing: 0.03em !important;
+        padding: 4rem !important;
+        box-sizing: border-box !important;
+        pointer-events: none !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Right Panel (Content Container) */
+    .fi-simple-main-ctn {
+        width: 48% !important;
+        max-width: 560px !important;
+        margin: auto !important;
+        padding: 3rem 4rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        z-index: 3 !important;
+    }
+}
+
+/* Force dark mode and hide light/dark switch */
+.fi-theme-toggle,
+.fi-topbar .fi-theme-toggle,
+.fi-topbar button[class*="theme-toggle"],
+.fi-topbar-actions button[class*="theme-toggle"],
+[class*="fi-theme-toggle"],
+button[id*="theme-toggle"] {
+    display: none !important;
+}
+
+/* Force global dark styling */
+html, body, .fi-layout, .fi-sidebar, .fi-topbar, .fi-main {
+    background-color: #080a0f !important;
+    color: #cbd5e1 !important;
+}
+
+.fi-sidebar {
+    background-color: #0b0e14 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+.fi-topbar {
+    background-color: rgba(11, 14, 20, 0.8) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+.fi-section, 
+.fi-ta-ctn, 
+.fi-ta-empty-state,
+.fi-wi-widget,
+.fi-wi-stats-overview-stat,
+.fi-card {
+    background-color: #0c101a !important;
+    border: 1px solid rgba(250, 204, 21, 0.08) !important;
+    box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.7) !important;
+    color: #ffffff !important;
+}
+
+
+
+

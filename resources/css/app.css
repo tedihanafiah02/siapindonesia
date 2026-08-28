@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium news design system additions */
+@layer components {
+    /* Glassmorphic card utility */
+    .premium-news-card {
+        background: rgba(13, 18, 30, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .premium-news-card:hover {
+        background: rgba(20, 27, 44, 0.85);
+        border-color: rgba(197, 160, 89, 0.35);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75), 
+                    0 0 25px -2px rgba(197, 160, 89, 0.08);
+        transform: translateY(-6px) scale-[1.01];
+    }
+    
+    /* Interactive horizontal tag chips */
+    .category-chip {
+        border-radius: 9999px;
+        padding: 0.65rem 1.35rem;
+        font-weight: 600;
+        font-size: 0.825rem;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(14, 20, 33, 0.75);
+        color: #cbd5e1;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        backdrop-filter: blur(8px);
+    }
+    
+    .category-chip:hover {
+        background: linear-gradient(135deg, #d4b26f, #c5a059);
+        color: #0f172a;
+        border-color: transparent;
+        box-shadow: 0 10px 20px -10px rgba(197, 160, 89, 0.45);
+        transform: translateY(-2px);
+    }
+    
+    .category-chip-active {
+        background: linear-gradient(135deg, #d4b26f, #c5a059);
+        color: #0f172a;
+        border-color: transparent;
+        box-shadow: 0 10px 25px -8px rgba(197, 160, 89, 0.55);
+        font-weight: 700;
+    }
+
+    /* Minimal premium tag badge */
+    .news-badge {
+        background: rgba(197, 160, 89, 0.06);
+        border: 1px solid rgba(197, 160, 89, 0.25);
+        color: #d4b26f;
+        font-weight: 700;
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 0.25rem 0.8rem;
+        border-radius: 9999px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+
+    .group:hover .news-badge {
+        background: rgba(197, 160, 89, 0.12);
+        border-color: rgba(197, 160, 89, 0.5);
+        box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
+    }
+}
+
+/* Micro animations */
+.img-zoom-parent {
+    overflow: hidden;
+    position: relative;
+}
+
+.img-zoom-child {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .img-zoom-child {
+    transform: scale(1.08);
+}
+
+/* Custom premium scrollbar helper */
+.news-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.news-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 8px;
+}
+
+.news-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(197, 160, 89, 0.12);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.news-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(197, 160, 89, 0.35);
+}
+
+/* Article Page Image Back-Glow Effect */
+.image-glow {
+    position: relative;
+    z-index: 1;
+}
+
+.image-glow::after {
+    content: '';
+    position: absolute;
+    inset: -15px;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
+    filter: blur(35px);
+    pointer-events: none;
+    border-radius: 2.5rem;
+}
+
+/* Responsive Typography Overrides for Article Content */
+#Content-wrapper p {
+    font-size: 0.98rem; /* default/mobile */
+    line-height: 1.85;
+    color: #cbd5e1; /* slate-300 */
+    margin-bottom: 1.6rem;
+}
+
+@media (min-width: 768px) {
+    #Content-wrapper p {
+        font-size: 1.08rem; /* tablet */
+        line-height: 1.95;
+    }
+}
+
+@media (min-width: 1024px) {
+    #Content-wrapper p {
+        font-size: 1.15rem; /* desktop */
+        line-height: 2.05;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Bold Lead Paragraph */
+#Content-wrapper p:first-of-type {
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: #f8fafc; /* slate-50 */
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    #Content-wrapper p:first-of-type {
+        font-size: 1.25rem;
+    }
+}
+
+#Content-wrapper h2 {
+    font-size: 1.55rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.025em;
+    line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+    #Content-wrapper h2 {
+        font-size: 1.95rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #Content-wrapper h2 {
+        font-size: 2.35rem;
+    }
+}
+
+#Content-wrapper h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+}
+
+@media (min-width: 768px) {
+    #Content-wrapper h3 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #Content-wrapper h3 {
+        font-size: 1.85rem;
+    }
+}
+
+/* Elegant Prose Blockquotes */
+#Content-wrapper blockquote {
+    border-left: 4px solid #c5a059;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: rgba(197, 160, 89, 0.03);
+    border-radius: 0 1rem 1rem 0;
+    font-style: italic;
+    color: #e2e8f0;
+}
+
+#Content-wrapper blockquote p {
+    margin-bottom: 0 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.75 !important;
+}
+
+/* Custom styled links in article body */
+#Content-wrapper a {
+    color: #d4b26f;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    transition: all 0.3s ease;
+}
+
+#Content-wrapper a:hover {
+    color: #edd1a1;
+    border-bottom-color: #edd1a1;
+    background: rgba(197, 160, 89, 0.05);
+}
