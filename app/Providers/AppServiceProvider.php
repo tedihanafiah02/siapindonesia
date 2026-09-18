@@ -16,6 +16,11 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // Force HTTPS in production or behind SSL proxy to avoid mixed content errors
+        if (app()->environment('production') || request()->isSecure() || request()->header('x-forwarded-proto') === 'https' || (!app()->runningInConsole() && str_starts_with(config('app.url'), 'https://'))) {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
+
         // Konfigurasi dinamis untuk URL public disk agar mendeteksi domain saat ini
         if (!app()->runningInConsole()) {
             config(['filesystems.disks.public.url' => asset('storage')]);

@@ -262,8 +262,8 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "SIAP Indonesia",
-      "url": "https://siapindonesia.co.id",
-      "logo": "https://siapindonesia.co.id/assets/images/logo.png",
+      "url": "{{ url('/') }}",
+      "logo": "{{ asset('assets/images/siapindo/logo-siapindo.png') }}",
       "sameAs": [
         "{{ $baseWaUrl }}"
       ],

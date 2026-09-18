@@ -238,7 +238,7 @@
                     @if($menu->banner_path)
                         <div class="group relative rounded-[28px] overflow-hidden border border-[#c5a059]/40 bg-slate-900/40 shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-xl">
                             <div class="relative overflow-hidden aspect-[16/9] sm:aspect-[21/9] md:aspect-[16/8]">
-                                <img src="{{ asset('storage/' . $menu->banner_path) }}" alt="{{ $menu->title ?: $menu->name }} Banner" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                <img src="{{ asset('storage/' . $menu->banner_path) }}" alt="{{ $menu->title ?: $menu->name }} Banner" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';">
                                 <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-slate-950/90 to-transparent"></div>
                                 <div class="absolute bottom-5 left-6 right-6 flex justify-between items-end z-10">
                                     <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-950/80 border border-[#c5a059]/40 backdrop-blur-md rounded-full text-[11px] font-bold text-[#d4b26f] uppercase tracking-widest shadow-lg">

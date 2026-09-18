@@ -40,7 +40,8 @@
                                 {{ $news->category->name }}
                             </span>
                             <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="thumbnail foto"
-                                class="object-cover w-full h-full img-zoom-child" />
+                                class="object-cover w-full h-full img-zoom-child"
+                                onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';" />
                         </div>
 
                         {{-- Card Info --}}

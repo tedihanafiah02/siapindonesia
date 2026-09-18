@@ -61,11 +61,11 @@
             <div class="flex items-center gap-4 mt-6 text-zinc-400 text-xs md:text-sm border-t border-white/5 pt-6 w-full max-w-xl justify-center">
                 <div class="flex items-center gap-3 text-left">
                     <div class="w-10 h-10 rounded-full overflow-hidden border border-white/10 shrink-0">
-                        <img src="{{ asset('storage/' . $articleNews->author->avatar) }}" class="w-full h-full object-cover" alt="{{ $articleNews->author->name }}" />
+                        <img src="{{ $articleNews->author && $articleNews->author->avatar ? asset('storage/' . $articleNews->author->avatar) : asset('assets/images/siapindo/speaker-default.png') }}" class="w-full h-full object-cover" alt="{{ $articleNews->author->name ?? 'Author' }}" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/speaker-default.png') }}';" />
                     </div>
                     <div>
-                        <p class="text-white font-semibold text-xs sm:text-sm">{{ $articleNews->author->name }}</p>
-                        <p class="text-[9px] sm:text-[10px] text-zinc-500 uppercase tracking-wider">{{ $articleNews->author->occupation }}</p>
+                        <p class="text-white font-semibold text-xs sm:text-sm">{{ $articleNews->author->name ?? 'Admin' }}</p>
+                        <p class="text-[9px] sm:text-[10px] text-zinc-500 uppercase tracking-wider">{{ $articleNews->author->occupation ?? 'Editor' }}</p>
                     </div>
                 </div>
                 
@@ -84,7 +84,8 @@
         <div class="container mx-auto px-5 lg:px-20 max-w-7xl mb-12">
             <div class="w-full aspect-[21/9] md:aspect-[16/7] rounded-[24px] overflow-hidden shadow-2xl border border-white/5 image-glow">
                 <img src="{{ asset('storage/' . $articleNews->thumbnail) }}" class="object-cover w-full h-full"
-                    alt="cover thumbnail">
+                    alt="cover thumbnail"
+                    onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';">
             </div>
         </div>
 

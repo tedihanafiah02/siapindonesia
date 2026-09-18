@@ -23,8 +23,9 @@
             {{-- Author Profile Card --}}
             <div class="premium-news-card bg-neutral-950/50 p-6 md:p-8 border border-white/5 rounded-3xl flex flex-col md:flex-row items-center gap-6 md:gap-8 w-full shadow-2xl">
                 <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-yellow-500 shrink-0 shadow-xl shadow-yellow-500/10">
-                    <img src="{{ asset('storage/' . $author->avatar) }}" alt="profile-img"
-                        class="w-full h-full object-cover" />
+                    <img src="{{ $author->avatar ? asset('storage/' . $author->avatar) : asset('assets/images/siapindo/speaker-default.png') }}" alt="profile-img"
+                        class="w-full h-full object-cover"
+                        onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/speaker-default.png') }}';" />
                 </div>
                 <div class="flex flex-col text-center md:text-left gap-1 flex-grow">
                     <span class="news-badge bg-yellow-500/10 text-yellow-400 border-yellow-500/20 w-fit mx-auto md:mx-0">
@@ -60,7 +61,8 @@
                                 {{ $news->category->name }}
                             </span>
                             <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="thumbnail photo"
-                                class="object-cover w-full h-full img-zoom-child" />
+                                class="object-cover w-full h-full img-zoom-child"
+                                onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';" />
                         </div>
 
                         {{-- Card Info --}}

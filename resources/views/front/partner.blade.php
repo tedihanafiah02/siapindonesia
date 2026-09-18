@@ -87,7 +87,8 @@
                                         <img src="{{ asset('storage/' . $partner->logo_path) }}"
                                             alt="{{ $partner->alt_text ?? $partner->name }}"
                                             class="partner-logo-img"
-                                            loading="lazy">
+                                            loading="lazy"
+                                            onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/logo-siapindo.png') }}';">
                                     </div>
                                 </div>
                             @empty
@@ -163,7 +164,7 @@
                                     @foreach($latestNews->take(3) as $news)
                                         <div class="group flex gap-3 items-center p-2 rounded-xl border border-white/5 bg-slate-900/20 hover:border-yellow-500/20 hover:bg-slate-900/40 transition-all duration-300">
                                             <div class="w-16 h-14 rounded-lg overflow-hidden shrink-0 border border-white/5 img-zoom-parent">
-                                                <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="{{ $news->name }}" class="w-full h-full object-cover img-zoom-child">
+                                                <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="{{ $news->name }}" class="w-full h-full object-cover img-zoom-child" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';">
                                             </div>
                                             <div class="min-w-0 flex-grow">
                                                 <h4 class="text-xs font-bold text-zinc-200 line-clamp-2 group-hover:text-yellow-400 transition-colors leading-snug">

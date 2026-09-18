@@ -21,6 +21,17 @@ Route::controller(FrontController::class)->group(function () {
     Route::get('/search', 'search')->name('front.search')->middleware('throttle:30,1');
 });
 
+// Fallback route for storage files if symlink is broken or unsupported on hosting
+Route::get('/storage/{path}', function ($path) {
+    $fullPath = storage_path('app/public/' . $path);
+    if (!file_exists($fullPath)) {
+        abort(404);
+    }
+    return response()->file($fullPath, [
+        'Cache-Control' => 'public, max-age=31536000',
+    ]);
+})->where('path', '.*');
+
 Route::get('/storage-link', function () {
     try {
         $target = storage_path('app/public');

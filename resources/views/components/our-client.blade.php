@@ -93,7 +93,8 @@
                                         alt="{{ $partner->alt_text ?? $partner->name }}"
                                         class="oc-logo"
                                         loading="eager"
-                                        draggable="false" />
+                                        draggable="false"
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/logo-siapindo.png') }}';" />
                                     @if($partner->name)
                                         <span class="text-[10px] sm:text-[11px] font-bold text-slate-700 group-hover:text-slate-900 leading-tight text-center truncate max-w-full px-1">
                                             {{ $partner->name }}
@@ -118,7 +119,8 @@
                                         alt="{{ $partner->alt_text ?? $partner->name }}"
                                         class="oc-logo"
                                         loading="eager"
-                                        draggable="false" />
+                                        draggable="false"
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/logo-siapindo.png') }}';" />
                                     @if($partner->name)
                                         <span class="text-[10px] sm:text-[11px] font-bold text-slate-700 group-hover:text-slate-900 leading-tight text-center truncate max-w-full px-1">
                                             {{ $partner->name }}
@@ -151,7 +153,8 @@
                                         alt="{{ $partner->alt_text ?? $partner->name }}"
                                         class="oc-logo"
                                         loading="eager"
-                                        draggable="false" />
+                                        draggable="false"
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/logo-siapindo.png') }}';" />
                                     @if($partner->name)
                                         <span class="text-[10px] sm:text-[11px] font-bold text-slate-700 group-hover:text-slate-900 leading-tight text-center truncate max-w-full px-1">
                                             {{ $partner->name }}
@@ -176,7 +179,8 @@
                                         alt="{{ $partner->alt_text ?? $partner->name }}"
                                         class="oc-logo"
                                         loading="eager"
-                                        draggable="false" />
+                                        draggable="false"
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/logo-siapindo.png') }}';" />
                                     @if($partner->name)
                                         <span class="text-[10px] sm:text-[11px] font-bold text-slate-700 group-hover:text-slate-900 leading-tight text-center truncate max-w-full px-1">
                                             {{ $partner->name }}

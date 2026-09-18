@@ -2,10 +2,10 @@
     <!-- Stacked Avatars with Google G Overlay Badge -->
     <div class="relative flex items-center pr-1">
         <div class="flex -space-x-2.5">
-            <img src="https://cdn.21st.dev/assets/mirror/20/202f28d9108e13136b34315b1c8dac25678f9dc5cb2f004c713d930cf285e62c.jpg" alt="Alumni SIAP Indonesia" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover ring-2 ring-[#c5a059]/30" />
-            <img src="https://cdn.21st.dev/assets/mirror/ce/ce1536afd37b7d4e6c9ffbee65b35e6897d4467ab07efc9b6466b6c1744654f9.jpg" alt="Alumni SIAP Indonesia" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover ring-2 ring-[#c5a059]/30" />
-            <img src="https://cdn.21st.dev/assets/mirror/a5/a5daca55ac260069e7a61ad9126a5913eec37ca03cb8cbc29cc37f8d13d2d2dd.jpg" alt="Alumni SIAP Indonesia" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover ring-2 ring-[#c5a059]/30" />
-            <img src="https://cdn.21st.dev/assets/mirror/60/60c2053e9aa4900708d262ddb15313d1f5b9e5daad2c0f6ace8c41f4fd78a015.jpg" alt="Alumni SIAP Indonesia" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover ring-2 ring-[#c5a059]/30" />
+            <img src="{{ asset('assets/images/alumni/alumni-1.jpg') }}" alt="Alumni SIAP Indonesia" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover ring-2 ring-[#c5a059]/30" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/speaker-default.png') }}';" />
+            <img src="{{ asset('assets/images/alumni/alumni-2.jpg') }}" alt="Alumni SIAP Indonesia" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover ring-2 ring-[#c5a059]/30" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/speaker-default.png') }}';" />
+            <img src="{{ asset('assets/images/alumni/alumni-3.jpg') }}" alt="Alumni SIAP Indonesia" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover ring-2 ring-[#c5a059]/30" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/speaker-default.png') }}';" />
+            <img src="{{ asset('assets/images/alumni/alumni-4.jpg') }}" alt="Alumni SIAP Indonesia" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover ring-2 ring-[#c5a059]/30" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/speaker-default.png') }}';" />
         </div>
         <!-- Google Badge Icon Overlay on Avatar Stack -->
         <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full p-0.5 shadow-md border border-slate-200 flex items-center justify-center">

@@ -76,7 +76,8 @@
                                         <!-- Image -->
                                         <img class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out" 
                                              src="{{ asset('storage/' . $gallery->image_path) }}" 
-                                             alt="{{ $gallery->alt_text }}" />
+                                             alt="{{ $gallery->alt_text }}"
+                                             onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';" />
                                         
                                         <!-- Soft Dark Overlay -->
                                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 z-10">

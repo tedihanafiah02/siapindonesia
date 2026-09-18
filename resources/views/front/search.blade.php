@@ -26,7 +26,8 @@
                         class="snap-start category-chip whitespace-nowrap">
                         <div class="flex w-5 h-5 shrink-0">
                             <img src="{{ asset('storage/' . $category->icon) }}" alt="icon"
-                                class="w-full h-full object-contain" />
+                                class="w-full h-full object-contain"
+                                onerror="this.onerror=null;this.src='{{ asset('assets/images/icons/courthouse.svg') }}';" />
                         </div>
                         <span>{{ $category->name }}</span>
                     </a>
@@ -80,7 +81,8 @@
                                 {{ $article->category->name }}
                             </span>
                             <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="thumbnail-img"
-                                class="w-full h-full object-cover img-zoom-child" />
+                                class="w-full h-full object-cover img-zoom-child"
+                                onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';" />
                         </div>
 
                         {{-- Card Info --}}

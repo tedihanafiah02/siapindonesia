@@ -747,7 +747,8 @@
                             <div class="group img-zoom-parent relative flex-grow h-[420px] md:h-[500px] lg:h-full rounded-[24px] overflow-hidden border border-white/10 shadow-2xl flex flex-col justify-end transition-all duration-500 hover:border-amber-400/50 hover:shadow-amber-500/10">
                                 <!-- Gambar Utama -->
                                 <img src="{{ asset('storage/' . $mainBlog->thumbnail) }}" alt="{{ $mainBlog->name }}"
-                                    class="absolute inset-0 w-full h-full object-cover img-zoom-child transition-transform duration-[1.5s] ease-out">
+                                    class="absolute inset-0 w-full h-full object-cover img-zoom-child transition-transform duration-[1.5s] ease-out"
+                                    onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';">
                                 
                                 <!-- Premium Gradient Overlays -->
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent z-10"></div>
@@ -809,7 +810,8 @@
                                         <div class="flex-shrink-0 w-24 h-20 md:w-28 md:h-24 rounded-xl overflow-hidden img-zoom-parent border border-slate-200">
                                             <a href="{{ route('front.details', $blog->slug) }}" class="block w-full h-full">
                                                 <img src="{{ asset('storage/' . $blog->thumbnail) }}" alt="{{ $blog->name }}"
-                                                    class="w-full h-full object-cover img-zoom-child">
+                                                    class="w-full h-full object-cover img-zoom-child"
+                                                    onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';">
                                             </a>
                                         </div>
 

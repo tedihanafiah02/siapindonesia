@@ -37,7 +37,10 @@
                                     <p class="testimonial-text mb-6">“{{ $testimonial->message }}”</p>
                                 </div>
                                 <div class="testimonial-header">
-                                    <img class="testimonial-avatar" src="{{ asset('storage/' . $testimonial->photo) }}" alt="{{ $testimonial->name }}">
+                                    <img class="testimonial-avatar" 
+                                         src="{{ $testimonial->photo ? asset('storage/' . $testimonial->photo) : asset('assets/images/siapindo/speaker-default.png') }}" 
+                                         alt="{{ $testimonial->name }}"
+                                         onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/speaker-default.png') }}';" />
                                     <div class="testimonial-user-info">
                                         <h4 class="testimonial-name">{{ $testimonial->name }}</h4>
                                         @if($testimonial->position)
@@ -63,7 +66,10 @@
                                     <p class="testimonial-text mb-6">“{{ $testimonial->message }}”</p>
                                 </div>
                                 <div class="testimonial-header">
-                                    <img class="testimonial-avatar" src="{{ asset('storage/' . $testimonial->photo) }}" alt="{{ $testimonial->name }}">
+                                    <img class="testimonial-avatar" 
+                                         src="{{ $testimonial->photo ? asset('storage/' . $testimonial->photo) : asset('assets/images/siapindo/speaker-default.png') }}" 
+                                         alt="{{ $testimonial->name }}"
+                                         onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/speaker-default.png') }}';" />
                                     <div class="testimonial-user-info">
                                         <h4 class="testimonial-name">{{ $testimonial->name }}</h4>
                                         @if($testimonial->position)
@@ -94,7 +100,10 @@
                                     <p class="testimonial-text mb-6">“{{ $testimonial->message }}”</p>
                                 </div>
                                 <div class="testimonial-header">
-                                    <img class="testimonial-avatar" src="{{ asset('storage/' . $testimonial->photo) }}" alt="{{ $testimonial->name }}">
+                                    <img class="testimonial-avatar" 
+                                         src="{{ $testimonial->photo ? asset('storage/' . $testimonial->photo) : asset('assets/images/siapindo/speaker-default.png') }}" 
+                                         alt="{{ $testimonial->name }}"
+                                         onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/speaker-default.png') }}';" />
                                     <div class="testimonial-user-info">
                                         <h4 class="testimonial-name">{{ $testimonial->name }}</h4>
                                         @if($testimonial->position)
@@ -120,7 +129,10 @@
                                     <p class="testimonial-text mb-6">“{{ $testimonial->message }}”</p>
                                 </div>
                                 <div class="testimonial-header">
-                                    <img class="testimonial-avatar" src="{{ asset('storage/' . $testimonial->photo) }}" alt="{{ $testimonial->name }}">
+                                    <img class="testimonial-avatar" 
+                                         src="{{ $testimonial->photo ? asset('storage/' . $testimonial->photo) : asset('assets/images/siapindo/speaker-default.png') }}" 
+                                         alt="{{ $testimonial->name }}"
+                                         onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/speaker-default.png') }}';" />
                                     <div class="testimonial-user-info">
                                         <h4 class="testimonial-name">{{ $testimonial->name }}</h4>
                                         @if($testimonial->position)

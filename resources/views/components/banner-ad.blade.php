@@ -24,7 +24,7 @@
                          data-duration="{{ $banner->duration ?: 10 }}"
                          data-index="{{ $index }}">
                         <a href="{{ $banner->link }}" class="block w-full h-full relative" target="_blank">
-                            <img src="{{ asset('storage/' . $banner->thumbnail) }}" class="w-full h-full object-cover transform group-hover/ad:scale-[1.01] transition-transform duration-700 ease-out" alt="Advertisement" />
+                            <img src="{{ asset('storage/' . $banner->thumbnail) }}" class="w-full h-full object-cover transform group-hover/ad:scale-[1.01] transition-transform duration-700 ease-out" alt="Advertisement" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/banner_iklan_bimtek.png') }}';" />
                             
                             <!-- Action Indicator -->
                             <span class="absolute bottom-3 right-3 z-20 px-3 py-1.5 bg-yellow-500 text-slate-950 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider rounded-md opacity-0 translate-y-1 group-hover/ad:opacity-100 group-hover/ad:translate-y-0 transition-all duration-300 shadow-lg flex items-center gap-1">

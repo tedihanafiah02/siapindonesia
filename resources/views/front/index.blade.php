@@ -81,7 +81,7 @@
                     @php $mainFeatured = $featured_articles->first(); @endphp
                     <div class="lg:col-span-7">
                         <div class="group relative h-[360px] md:h-[460px] rounded-[24px] overflow-hidden border border-white/10 shadow-2xl flex flex-col justify-end transition-all duration-500">
-                            <img src="{{ asset('storage/' . $mainFeatured->thumbnail) }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="featured">
+                            <img src="{{ asset('storage/' . $mainFeatured->thumbnail) }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="featured" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent z-10"></div>
                             <div class="relative z-20 p-6 md:p-8 flex flex-col gap-3">
                                 <div>
@@ -116,7 +116,7 @@
                         <div class="group flex gap-4 p-4 rounded-[22px] bg-slate-50 text-slate-900 shadow-md hover:shadow-xl hover:border-[#c5a059]/40 hover:-translate-y-1 transition-all duration-300 flex-1 items-center border border-slate-200/90">
                             <div class="w-24 h-20 md:w-28 md:h-24 rounded-xl overflow-hidden shrink-0 relative shadow-sm">
                                 <a href="{{ route('front.details', $featured->slug) }}" class="block w-full h-full">
-                                    <img src="{{ asset('storage/' . $featured->thumbnail) }}" alt="featured" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <img src="{{ asset('storage/' . $featured->thumbnail) }}" alt="featured" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';">
                                 </a>
                             </div>
                             <div class="flex flex-col justify-center gap-1 py-0.5">
@@ -192,7 +192,8 @@
                             </span>
                             <img src="{{ asset('storage/' . $article->thumbnail) }}"
                                 class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-                                alt="thumbnail" />
+                                alt="thumbnail"
+                                onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';" />
                         </div>
 
                         {{-- Card Info --}}
@@ -252,7 +253,7 @@
                                     <span class="px-3 py-1 bg-[#c5a059] text-slate-950 rounded-full absolute top-3 left-3 z-20 text-[9px] font-black uppercase tracking-wider shadow-md">
                                         Sorotan
                                     </span>
-                                    <img src="{{ asset('storage/' . $catFeatured->thumbnail) }}" alt="featured-thumbnail" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
+                                    <img src="{{ asset('storage/' . $catFeatured->thumbnail) }}" alt="featured-thumbnail" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';" />
                                 </div>
                                 <div class="p-5 flex flex-col justify-between flex-grow gap-4">
                                     <div class="space-y-2">
@@ -284,7 +285,7 @@
                                     <span class="px-3 py-1 bg-slate-900/90 text-[#d4b26f] border border-[#c5a059]/30 rounded-full absolute top-3 left-3 z-20 text-[9px] font-bold uppercase tracking-wider shadow-md">
                                         {{ $article->category->name }}
                                     </span>
-                                    <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="thumbnail" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
+                                    <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="thumbnail" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='{{ asset('assets/images/siapindo/carousel-1.webp') }}';" />
                                 </div>
                                 <div class="p-5 flex flex-col justify-between flex-grow gap-4">
                                     <div class="space-y-2">
