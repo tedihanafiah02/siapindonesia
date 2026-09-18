@@ -26,9 +26,11 @@ class Gallery extends Model
     {
         static::saved(function ($model) {
             cache()->forget('all_galleries');
+            cache()->forget('home_galleries_six');
         });
         static::deleted(function ($model) {
             cache()->forget('all_galleries');
+            cache()->forget('home_galleries_six');
         });
     }
 }

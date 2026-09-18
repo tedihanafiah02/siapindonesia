@@ -88,7 +88,10 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\Testimonial::saved($clearTestimonialsCache);
         \App\Models\Testimonial::deleted($clearTestimonialsCache);
 
-        $clearGalleriesCache = fn() => cache()->forget('all_galleries');
+        $clearGalleriesCache = function () {
+            cache()->forget('all_galleries');
+            cache()->forget('home_galleries_six');
+        };
         \App\Models\Gallery::saved($clearGalleriesCache);
         \App\Models\Gallery::deleted($clearGalleriesCache);
 
