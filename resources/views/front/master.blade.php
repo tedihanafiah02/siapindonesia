@@ -296,6 +296,29 @@
     <!-- Global JS Libraries (Deferred & Loaded at the bottom to prevent render-blocking) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var checkFancybox = setInterval(function() {
+                if (window.jQuery && $.fancybox) {
+                    clearInterval(checkFancybox);
+                    // Override Fancybox YouTube settings to use standard www.youtube.com domain instead of blocked youtube-nocookie.com
+                    $.fancybox.defaults.media.youtube = {
+                        url: 'https://www.youtube.com/embed/%id%?autoplay=1&autohide=1&fs=1&rel=0&hd=1&wmode=transparent&enablejsapi=1&html5=1',
+                        params: {
+                            autoplay: 1,
+                            autohide: 1,
+                            fs: 1,
+                            rel: 0,
+                            hd: 1,
+                            wmode: 'transparent',
+                            enablejsapi: 1,
+                            html5: 1
+                        }
+                    };
+                }
+            }, 50);
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" defer></script>
     
     <!-- Preload links on hover/touch instantly before clicking -->

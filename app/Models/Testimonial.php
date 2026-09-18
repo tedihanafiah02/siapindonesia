@@ -21,6 +21,7 @@ class Testimonial extends Model
         'photo',
         'row',
         'video_url',
+        'video_file',
     ];
 
     /**

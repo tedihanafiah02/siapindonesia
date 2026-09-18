@@ -47,81 +47,102 @@
     @endphp
     <style>
         .custom-navbar-offset {
-            margin-top: 125px;
+            margin-top: 100px;
         }
         @media (min-width: 768px) {
             .custom-navbar-offset {
-                margin-top: 160px;
+                margin-top: 130px;
             }
         }
     </style>
+
     <div class="w-full flex-grow flex flex-col custom-navbar-offset">
         <x-navbar />
 
         <!-- Header / Hero Section -->
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-8 text-center">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight font-[Poppins] mb-4 bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] bg-clip-text text-transparent">
-                Jadwal Pelatihan & Training
-            </h1>
-            <p class="text-zinc-400 max-w-2xl mx-auto text-xs sm:text-sm md:text-base px-2">
-                Program peningkatan kapasitas SDM instansi pemerintah dan korporasi swasta dengan narasumber bersertifikasi nasional dan internasional.
-            </p>
-        </div>
+        <section id="ScheduleHero" class="relative py-12 md:py-16 overflow-hidden bg-gradient-to-b from-[#07090f] via-[#090d18] to-[#07090f] border-b border-[#c5a059]/10">
+            <!-- Ambient Glow Lights -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-amber-500/5 rounded-full blur-[140px] pointer-events-none"></div>
 
-        <!-- Search Form Section -->
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-10">
-            <div class="p-6 md:p-8 rounded-3xl bg-[#0c101a] border border-white/5 shadow-2xl relative overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center flex flex-col items-center">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#c5a059]/10 border border-[#c5a059]/30 rounded-full text-xs font-bold text-[#d4b26f] uppercase tracking-widest mb-4">
+                    <span class="w-2 h-2 rounded-full bg-[#c5a059] animate-pulse"></span>
+                    Jadwal Resmi Pelatihan & Bimtek SDM
+                </span>
+
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight font-[Poppins] mb-4">
+                    Jadwal Pelatihan & <br class="hidden sm:inline" />
+                    <span class="bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] bg-clip-text text-transparent">
+                        Bimbingan Teknis
+                    </span>
+                </h1>
+
+                <p class="text-zinc-400 max-w-2xl mx-auto text-xs sm:text-sm md:text-base leading-relaxed font-[Inter]">
+                    Program peningkatan kapasitas SDM instansi pemerintah, BUMN, dan korporasi swasta dengan narasumber bersertifikasi kompetensi nasional.
+                </p>
+            </div>
+        </section>
+
+        <!-- Search & Filter Form Section -->
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl my-10">
+            <div class="p-6 md:p-8 rounded-3xl bg-slate-900/90 border border-[#c5a059]/25 backdrop-blur-xl shadow-2xl relative overflow-hidden">
                 <!-- Ambient Glow behind form -->
                 <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#c5a059]/10 rounded-full blur-[80px] pointer-events-none"></div>
                 <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-[#c5a059]/10 rounded-full blur-[80px] pointer-events-none"></div>
 
-                <h2 class="text-base sm:text-lg font-bold text-white font-[Poppins] mb-6 flex items-center gap-2">
-                    <i class="fas fa-search text-[#c5a059]"></i> Cari & Filter Jadwal Pelatihan
-                </h2>
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+                    <h2 class="text-base sm:text-lg font-bold text-white font-[Poppins] flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-[#c5a059]/15 border border-[#c5a059]/30 flex items-center justify-center text-[#d4b26f]">
+                            <i class="fas fa-search text-xs"></i>
+                        </div>
+                        <span>Cari & Filter Jadwal Pelatihan</span>
+                    </h2>
+                    <span class="text-[11px] text-[#d4b26f] font-semibold hidden sm:inline">Pencarian Interaktif Real-time</span>
+                </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                     <!-- Judul Input -->
                     <div class="flex flex-col gap-2">
-                        <label for="filter-title" class="text-xs font-semibold text-zinc-400 uppercase tracking-wider">Judul Training</label>
+                        <label for="filter-title" class="text-[11px] font-extrabold text-[#d4b26f] uppercase tracking-wider">Judul Training</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                <i class="fas fa-book-open text-zinc-500 text-xs"></i>
+                                <i class="fas fa-book-open text-zinc-400 text-xs"></i>
                             </span>
-                            <input type="text" id="filter-title" placeholder="Cari judul..." 
-                                   class="w-full bg-neutral-950 border border-white/10 rounded-xl py-3 ps-10 pe-4 text-sm text-white focus:outline-none focus:border-[#c5a059] focus:ring-1 focus:ring-[#c5a059] transition-all duration-300">
+                            <input type="text" id="filter-title" placeholder="Cari berdasarkan judul..." 
+                                   class="w-full bg-slate-950/80 border border-white/15 focus:border-[#c5a059] rounded-xl py-3 ps-10 pe-4 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#c5a059]/30 transition-all duration-300 shadow-inner">
                         </div>
                     </div>
 
                     <!-- Tanggal Input -->
                     <div class="flex flex-col gap-2">
-                        <label for="filter-date" class="text-xs font-semibold text-zinc-400 uppercase tracking-wider">Tanggal</label>
+                        <label for="filter-date" class="text-[11px] font-extrabold text-[#d4b26f] uppercase tracking-wider">Tanggal</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                <i class="far fa-calendar-alt text-zinc-500 text-xs"></i>
+                                <i class="far fa-calendar-alt text-zinc-400 text-xs"></i>
                             </span>
                             <input type="text" id="filter-date" placeholder="Contoh: Jan, 12, 2026..." 
-                                   class="w-full bg-neutral-950 border border-white/10 rounded-xl py-3 ps-10 pe-4 text-sm text-white focus:outline-none focus:border-[#c5a059] focus:ring-1 focus:ring-[#c5a059] transition-all duration-300">
+                                   class="w-full bg-slate-950/80 border border-white/15 focus:border-[#c5a059] rounded-xl py-3 ps-10 pe-4 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#c5a059]/30 transition-all duration-300 shadow-inner">
                         </div>
                     </div>
 
                     <!-- Tempat / Media Input -->
                     <div class="flex flex-col gap-2">
-                        <label for="filter-location" class="text-xs font-semibold text-zinc-400 uppercase tracking-wider">Media / Tempat</label>
+                        <label for="filter-location" class="text-[11px] font-extrabold text-[#d4b26f] uppercase tracking-wider">Media / Tempat</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                <i class="fas fa-map-marker-alt text-zinc-500 text-xs"></i>
+                                <i class="fas fa-map-marker-alt text-zinc-400 text-xs"></i>
                             </span>
                             <input type="text" id="filter-location" placeholder="Contoh: Zoom, Jakarta, Bali..." 
-                                   class="w-full bg-neutral-950 border border-white/10 rounded-xl py-3 ps-10 pe-4 text-sm text-white focus:outline-none focus:border-[#c5a059] focus:ring-1 focus:ring-[#c5a059] transition-all duration-300">
+                                   class="w-full bg-slate-950/80 border border-white/15 focus:border-[#c5a059] rounded-xl py-3 ps-10 pe-4 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#c5a059]/30 transition-all duration-300 shadow-inner">
                         </div>
                     </div>
                 </div>
 
                 <!-- Reset Button -->
-                <div class="flex justify-between items-center mt-6">
-                    <span class="text-xs text-zinc-500">Pencarian interaktif akan memfilter secara otomatis.</span>
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-3 mt-6 pt-4 border-t border-white/10">
+                    <span class="text-xs text-zinc-400">Pencarian interaktif akan memfilter secara otomatis.</span>
                     <button type="button" id="reset-filters" 
-                            class="inline-flex items-center gap-2 px-5 py-2.5 bg-neutral-900 border border-white/10 hover:border-[#c5a059]/30 text-zinc-400 hover:text-[#c5a059] text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-300 cursor-pointer">
+                            class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-950 border border-white/15 hover:border-[#c5a059]/50 text-zinc-300 hover:text-[#d4b26f] text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-300 cursor-pointer shadow-sm">
                         <i class="fas fa-undo text-xs"></i> Reset Filter
                     </button>
                 </div>
@@ -129,51 +150,51 @@
         </div>
 
         <!-- Global No Results Message -->
-        <div id="no-schedules-found" class="container mx-auto px-4 max-w-7xl mb-12 text-center py-16 bg-[#0c101a]/50 border border-white/5 rounded-3xl hidden">
-            <div class="w-16 h-16 mx-auto rounded-full bg-[#c5a059]/10 border border-[#c5a059]/20 flex items-center justify-center mb-4">
-                <i class="fas fa-search text-[#c5a059] text-xl"></i>
+        <div id="no-schedules-found" class="container mx-auto px-4 max-w-7xl mb-12 text-center py-16 bg-slate-900/60 border border-white/10 rounded-3xl hidden">
+            <div class="w-16 h-16 mx-auto rounded-full bg-[#c5a059]/15 border border-[#c5a059]/30 flex items-center justify-center mb-4">
+                <i class="fas fa-search text-[#d4b26f] text-xl"></i>
             </div>
             <h3 class="text-lg font-bold text-white mb-2">Jadwal Pelatihan Tidak Ditemukan</h3>
             <p class="text-zinc-400 text-sm max-w-md mx-auto">Maaf, kami tidak menemukan jadwal pelatihan yang cocok dengan filter pencarian Anda. Silakan coba kata kunci lain atau reset filter.</p>
         </div>
 
         <!-- Training Schedule Tables Grouped by Category -->
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-12 space-y-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-16 space-y-12">
             @if ($categories->isNotEmpty())
                 @foreach ($categories as $category)
                     <div class="space-y-4 category-group">
                         <!-- Category Header -->
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
                             <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-[#c5a059]/10 flex items-center justify-center text-[#c5a059] shrink-0">
-                                    <i class="fas fa-graduation-cap text-xs"></i>
+                                <div class="w-9 h-9 rounded-xl bg-[#c5a059]/15 border border-[#c5a059]/30 flex items-center justify-center text-[#d4b26f] shrink-0 shadow-md">
+                                    <i class="fas fa-graduation-cap text-sm"></i>
                                 </div>
-                                <h2 class="text-lg sm:text-xl md:text-2xl font-bold font-[Poppins] text-white">
-                                    Kategori: {{ $category->name }}
+                                <h2 class="text-xl sm:text-2xl font-black font-[Poppins] text-white">
+                                    Kategori: <span class="bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] bg-clip-text text-transparent">{{ $category->name }}</span>
                                 </h2>
                             </div>
                             <a href="{{ $baseWaUrl }}?text=Halo%20Admin%20Siap%20Indonesia,%20saya%20ingin%20konsultasi%20mengenai%20pelatihan%20kategori%20{{ rawurlencode($category->name) }}"
                                target="_blank"
-                               class="inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 border border-[#c5a059]/40 hover:border-[#d4b26f] text-[#c5a059] hover:text-slate-950 hover:bg-gradient-to-r hover:from-[#e6c687] hover:to-[#d4b26f] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(197,160,89,0.03)] hover:shadow-[0_4px_15px_rgba(197,160,89,0.25)] transform hover:-translate-y-0.5 group w-full sm:w-auto text-center shrink-0">
+                               class="inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-[#c5a059]/40 hover:border-[#d4b26f] text-[#d4b26f] hover:text-slate-950 hover:bg-gradient-to-r hover:from-[#e6c687] hover:to-[#d4b26f] font-extrabold text-xs uppercase tracking-wider rounded-full transition-all duration-300 shadow-md transform hover:-translate-y-0.5 group w-full sm:w-auto text-center shrink-0">
                                 <i class="fab fa-whatsapp text-sm"></i>
                                 <span>Konsultasi Gratis</span>
                             </a>
                         </div>
 
-                        <!-- Desktop View: Glassmorphic Compact Table -->
-                        <div class="hidden md:block w-full overflow-x-auto rounded-2xl border border-white/15 bg-slate-950/20 backdrop-blur-2xl shadow-xl news-scrollbar">
+                        <!-- Desktop View: Glassmorphic Executive Table -->
+                        <div class="hidden md:block w-full overflow-x-auto rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-xl shadow-2xl news-scrollbar">
                             <table class="w-full text-left border-collapse">
                                 <thead>
-                                    <tr class="bg-slate-900/60 text-zinc-300 font-[Poppins] border-b border-white/25">
-                                        <th class="py-3 px-4 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#c5a059] border-r border-white/25 w-[12%]">Tanggal</th>
-                                        <th class="py-3 px-4 text-[11px] sm:text-xs font-bold uppercase tracking-wider border-r border-white/25 w-[45%]">Judul Training / Pelatihan</th>
-                                        <th class="py-3 px-4 text-[11px] sm:text-xs font-bold uppercase tracking-wider border-r border-white/25 w-[13%]">Waktu</th>
-                                        <th class="py-3 px-4 text-[11px] sm:text-xs font-bold uppercase tracking-wider border-r border-white/25 w-[15%]">Media / Tempat</th>
-                                        <th class="py-3 px-4 text-[11px] sm:text-xs font-bold uppercase tracking-wider border-r border-white/25 w-[10%]">Investasi</th>
-                                        <th class="py-3 px-4 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-center w-[5%]">Aksi</th>
+                                    <tr class="bg-slate-950/80 text-[#d4b26f] font-[Poppins] border-b border-white/10">
+                                        <th class="py-3.5 px-4 text-xs font-extrabold uppercase tracking-wider w-[14%]">Tanggal</th>
+                                        <th class="py-3.5 px-4 text-xs font-extrabold uppercase tracking-wider w-[42%]">Judul Training / Pelatihan</th>
+                                        <th class="py-3.5 px-4 text-xs font-extrabold uppercase tracking-wider w-[14%]">Waktu</th>
+                                        <th class="py-3.5 px-4 text-xs font-extrabold uppercase tracking-wider w-[15%]">Media / Tempat</th>
+                                        <th class="py-3.5 px-4 text-xs font-extrabold uppercase tracking-wider w-[10%]">Investasi</th>
+                                        <th class="py-3.5 px-4 text-xs font-extrabold uppercase tracking-wider text-center w-[5%]">Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody class="text-zinc-300">
+                                <tbody class="divide-y divide-white/5 text-zinc-200">
                                     @foreach ($category->trainingSchedules as $schedule)
                                         @php
                                             $waMessage = "Halo Admin Siap Indonesia, saya ingin mendaftar pelatihan berikut:\n\n" .
@@ -185,43 +206,46 @@
                                                          "Mohon informasi selanjutnya untuk proses pendaftaran. Terima kasih.";
                                             $waUrl = $baseWaUrl . "?text=" . rawurlencode($waMessage);
                                         @endphp
-                                        <tr class="hover:bg-slate-900/40 transition duration-300 border-b border-white/15">
+                                        <tr class="hover:bg-slate-800/60 transition-colors duration-200">
                                             <!-- Date -->
-                                            <td class="py-3 px-4 font-semibold text-[11px] sm:text-xs text-zinc-100 whitespace-nowrap border-r border-white/15">
-                                                <div class="flex items-center gap-2">
-                                                    <i class="far fa-calendar-alt text-[#c5a059]/80"></i>
+                                            <td class="py-3.5 px-4 font-semibold text-xs text-zinc-100 whitespace-nowrap">
+                                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#c5a059]/15 border border-[#c5a059]/30 rounded-lg text-[#d4b26f] text-xs font-bold">
+                                                    <i class="far fa-calendar-alt"></i>
                                                     <span>{{ $schedule->date }}</span>
-                                                </div>
+                                                </span>
                                             </td>
                                             <!-- Title -->
-                                            <td class="py-3 px-4 text-xs sm:text-sm font-extrabold text-zinc-200 border-r border-white/15">
+                                            <td class="py-3.5 px-4 text-xs sm:text-sm font-extrabold text-white font-[Poppins]">
                                                 {{ $schedule->title }}
                                             </td>
                                             <!-- Time -->
-                                            <td class="py-3 px-4 text-[11px] sm:text-xs whitespace-nowrap border-r border-white/15">
-                                                <div class="flex items-center gap-2">
-                                                    <i class="far fa-clock text-zinc-400"></i>
+                                            <td class="py-3.5 px-4 text-xs whitespace-nowrap text-zinc-300">
+                                                <div class="flex items-center gap-1.5">
+                                                    <i class="far fa-clock text-[#c5a059]"></i>
                                                     <span>{{ $schedule->time }}</span>
                                                 </div>
                                             </td>
                                             <!-- Location / Media -->
-                                            <td class="py-3 px-4 text-[11px] sm:text-xs text-zinc-400 border-r border-white/15">
-                                                <div class="flex items-center gap-2">
-                                                    @if (Str::contains(strtolower($schedule->location), ['zoom', 'online', 'daring']))
-                                                        <i class="fas fa-video text-green-400"></i>
-                                                    @else
-                                                        <i class="fas fa-map-marker-alt text-amber-500"></i>
-                                                    @endif
-                                                    <span>{{ $schedule->location }}</span>
-                                                </div>
+                                            <td class="py-3.5 px-4 text-xs text-zinc-300">
+                                                @if (Str::contains(strtolower($schedule->location), ['zoom', 'online', 'daring']))
+                                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-400 text-xs font-bold">
+                                                        <i class="fas fa-video text-xs"></i>
+                                                        <span>{{ $schedule->location }}</span>
+                                                    </span>
+                                                @else
+                                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-300 text-xs font-bold">
+                                                        <i class="fas fa-map-marker-alt text-xs"></i>
+                                                        <span>{{ $schedule->location }}</span>
+                                                    </span>
+                                                @endif
                                             </td>
                                             <!-- Price -->
-                                            <td class="py-3 px-4 font-bold text-[11px] sm:text-xs text-[#d4b26f] whitespace-nowrap border-r border-white/15">
+                                            <td class="py-3.5 px-4 font-black text-xs sm:text-sm text-[#e6c687] whitespace-nowrap">
                                                 {{ $schedule->price }}
                                             </td>
-                                            <!-- Action -->
-                                            <td class="py-3 px-4 text-xs sm:text-sm text-center">
-                                                <div class="flex flex-col xl:flex-row gap-1.5 justify-center items-center">
+                                            <!-- Action Buttons -->
+                                            <td class="py-3.5 px-4 text-center">
+                                                <div class="flex flex-col xl:flex-row gap-2 justify-center items-center">
                                                     <!-- Daftar Sekarang -->
                                                     <button type="button"
                                                             onclick="showTrainingDetails(this)"
@@ -232,7 +256,7 @@
                                                             data-price="{{ $schedule->price }}"
                                                             data-thumbnail="{{ $schedule->thumbnail ? asset('storage/' . $schedule->thumbnail) : '' }}"
                                                             data-wa-url="{{ $waUrl }}"
-                                                            class="inline-flex items-center justify-center gap-1 px-2.5 py-1.5 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-white font-extrabold text-[10px] uppercase tracking-wider rounded-lg transition-all duration-300 shadow-sm transform hover:-translate-y-0.5 cursor-pointer w-full xl:w-auto">
+                                                            class="inline-flex items-center justify-center gap-1 px-3 py-1.5 bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] hover:from-[#edd1a1] hover:to-[#8a6109] text-slate-950 font-black text-[10px] uppercase tracking-wider rounded-lg transition-all duration-300 shadow-sm transform hover:-translate-y-0.5 cursor-pointer w-full xl:w-auto">
                                                         <i class="fab fa-whatsapp"></i>
                                                         <span>Daftar</span>
                                                     </button>
@@ -246,7 +270,7 @@
                                                             data-price="{{ $schedule->price }}"
                                                             data-thumbnail="{{ $schedule->thumbnail ? asset('storage/' . $schedule->thumbnail) : '' }}"
                                                             data-wa-url="{{ $waUrl }}"
-                                                            class="inline-flex items-center justify-center gap-1 px-2.5 py-1.5 border border-[#c5a059]/40 hover:border-[#d4b26f] text-[#c5a059] hover:text-slate-950 hover:bg-gradient-to-r hover:from-[#e6c687] hover:to-[#d4b26f] font-extrabold text-[10px] uppercase tracking-wider rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer w-full xl:w-auto">
+                                                            class="inline-flex items-center justify-center gap-1 px-3 py-1.5 border border-white/20 hover:border-[#c5a059] text-zinc-300 hover:text-[#d4b26f] font-extrabold text-[10px] uppercase tracking-wider rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer w-full xl:w-auto">
                                                         <i class="far fa-eye text-[10px]"></i>
                                                         <span>Detail</span>
                                                     </button>
@@ -258,7 +282,7 @@
                             </table>
                         </div>
 
-                        <!-- Mobile View: Elegant Training Cards -->
+                        <!-- Mobile View: Modern Training Cards -->
                         <div class="grid grid-cols-1 gap-4 md:hidden">
                             @foreach ($category->trainingSchedules as $schedule)
                                 @php
@@ -271,33 +295,33 @@
                                                  "Mohon informasi selanjutnya untuk proses pendaftaran. Terima kasih.";
                                     $waUrl = $baseWaUrl . "?text=" . rawurlencode($waMessage);
                                 @endphp
-                                <div class="bg-slate-900/40 border border-white/5 rounded-2xl p-4 space-y-3.5 shadow-lg relative overflow-hidden mobile-schedule-card">
+                                <div class="bg-slate-900/80 border border-white/10 hover:border-[#c5a059]/40 rounded-2xl p-5 space-y-3.5 shadow-xl relative overflow-hidden mobile-schedule-card">
                                     <div class="flex justify-between items-start gap-2">
-                                        <div class="flex items-center gap-1.5 text-[#c5a059] font-bold text-[11px] mobile-date">
+                                        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#c5a059]/15 border border-[#c5a059]/30 rounded-lg text-[#d4b26f] font-bold text-[11px] mobile-date">
                                             <i class="far fa-calendar-alt"></i>
                                             <span>{{ $schedule->date }}</span>
                                         </div>
-                                        <span class="font-extrabold text-[11px] text-[#d4b26f] shrink-0">
+                                        <span class="font-black text-xs text-[#e6c687] shrink-0">
                                             {{ $schedule->price }}
                                         </span>
                                     </div>
                                     
-                                    <h3 class="text-zinc-100 font-extrabold text-xs leading-snug mobile-title">
+                                    <h3 class="text-white font-black text-xs sm:text-sm leading-snug font-[Poppins] mobile-title">
                                         {{ $schedule->title }}
                                     </h3>
 
-                                    <div class="grid grid-cols-2 gap-2 text-[10px] text-zinc-400 border-t border-white/5 pt-2">
+                                    <div class="grid grid-cols-2 gap-2 text-[11px] text-zinc-300 border-t border-white/10 pt-2.5">
                                         <div class="flex items-center gap-1.5 mobile-time">
-                                            <i class="far fa-clock text-zinc-500"></i>
+                                            <i class="far fa-clock text-[#c5a059]"></i>
                                             <span class="truncate">{{ $schedule->time }}</span>
                                         </div>
                                         <div class="flex items-center gap-1.5 justify-end mobile-location">
                                             @if (Str::contains(strtolower($schedule->location), ['zoom', 'online', 'daring']))
-                                                <i class="fas fa-video text-green-400/80"></i>
+                                                <i class="fas fa-video text-emerald-400"></i>
                                             @else
-                                                <i class="fas fa-map-marker-alt text-amber-500/80"></i>
+                                                <i class="fas fa-map-marker-alt text-amber-400"></i>
                                             @endif
-                                            <span class="truncate max-w-[80px]">{{ $schedule->location }}</span>
+                                            <span class="truncate max-w-[90px] font-semibold text-white">{{ $schedule->location }}</span>
                                         </div>
                                     </div>
 
@@ -313,7 +337,7 @@
                                                 data-price="{{ $schedule->price }}"
                                                 data-thumbnail="{{ $schedule->thumbnail ? asset('storage/' . $schedule->thumbnail) : '' }}"
                                                 data-wa-url="{{ $waUrl }}"
-                                                class="flex-grow justify-center items-center gap-1.5 py-2 px-3 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-white font-extrabold text-[10px] uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md flex cursor-pointer">
+                                                class="flex-grow justify-center items-center gap-1.5 py-2.5 px-3 bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] text-slate-950 font-black text-[10px] uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md flex cursor-pointer">
                                             <i class="fab fa-whatsapp"></i>
                                             <span>Daftar</span>
                                         </button>
@@ -327,7 +351,7 @@
                                                 data-price="{{ $schedule->price }}"
                                                 data-thumbnail="{{ $schedule->thumbnail ? asset('storage/' . $schedule->thumbnail) : '' }}"
                                                 data-wa-url="{{ $waUrl }}"
-                                                class="flex-grow justify-center items-center gap-1.5 py-2 px-3 border border-[#c5a059]/40 hover:border-[#d4b26f] text-[#c5a059] font-extrabold text-[10px] uppercase tracking-wider rounded-xl transition-all duration-300 flex cursor-pointer">
+                                                class="flex-grow justify-center items-center gap-1.5 py-2.5 px-3 border border-white/20 hover:border-[#c5a059] text-zinc-300 hover:text-[#d4b26f] font-extrabold text-[10px] uppercase tracking-wider rounded-xl transition-all duration-300 flex cursor-pointer">
                                             <i class="far fa-eye"></i>
                                             <span>Detail</span>
                                         </button>
@@ -339,12 +363,12 @@
                 @endforeach
             @else
                 <!-- Empty State -->
-                <div class="py-16 px-4 bg-slate-900/10 border border-white/5 rounded-[24px] text-center">
-                    <svg class="w-16 h-16 text-zinc-600 mx-auto mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <div class="py-16 px-4 bg-slate-900/30 border border-white/10 rounded-[24px] text-center">
+                    <svg class="w-16 h-16 text-zinc-500 mx-auto mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                     </svg>
                     <h2 class="text-xl font-bold font-[Poppins] text-white">Belum Ada Jadwal Pelatihan</h2>
-                    <p class="text-xs text-zinc-500 mt-1 max-w-sm mx-auto">Silakan hubungi admin kami untuk informasi pelaksanaan bimtek atau pelatihan kelas privat/in-house.</p>
+                    <p class="text-xs text-zinc-400 mt-1 max-w-sm mx-auto">Silakan hubungi admin kami untuk informasi pelaksanaan bimtek atau pelatihan kelas privat/in-house.</p>
                 </div>
             @endif
         </div>
@@ -352,127 +376,12 @@
         {{-- Advertisement Section --}}
         <x-banner-ad :bannerads="$bannerads" />
 
-
-        <!-- Dokumentasi Training Section (Gallery) -->
-        @if ($galleries->isNotEmpty())
-            <section class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-12 border-t border-white/5 pt-10">
-                <div class="text-center mb-6">
-                    <h2 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] bg-clip-text text-transparent font-[Poppins] mb-3">
-                        Dokumentasi Training
-                    </h2>
-                    <p class="text-zinc-400 text-xs sm:text-sm">Dokumentasi kegiatan diklat dan pelatihan yang telah kami selenggarakan.</p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    @foreach ($galleries as $gallery)
-                        <div class="group relative overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 shadow-lg hover:shadow-[0_8px_30px_rgba(197,160,89,0.15)] hover:border-[#c5a059]/25 transition-all duration-500 transform hover:-translate-y-1.5 aspect-[4/3] cursor-pointer">
-                            <a data-fancybox="pelatihan-gallery" href="{{ asset('storage/' . $gallery->image_path) }}" data-caption="{{ $gallery->alt_text }}">
-                                <!-- Image -->
-                                <img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" 
-                                     src="{{ asset('storage/' . $gallery->image_path) }}" 
-                                     alt="{{ $gallery->alt_text }}" />
-                                
-                                <!-- Elegant Dark Overlay -->
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 z-10">
-                                    <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 bg-[#c5a059]/10 border border-[#c5a059]/30 rounded-full text-[9px] font-bold text-[#d4b26f] uppercase tracking-widest mb-2">
-                                            Dokumentasi
-                                        </span>
-                                        <p class="text-xs font-bold text-white line-clamp-2 leading-snug font-[Poppins]">
-                                            {{ $gallery->alt_text ?? 'Dokumentasi Training Siap Indonesia' }}
-                                        </p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Zoom Icon Tag -->
-                                <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-md z-10">
-                                    <i class="fas fa-search-plus text-xs text-[#c5a059]"></i>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-            </section>
-        @endif
+        {{-- Dokumentasi Training Section (Gallery Component) --}}
+        <x-gallery :galleries="$galleries" title="Kegiatan Training & Bimtek Terkini" badge="Dokumentasi Pelatihan" subtitle="Dokumentasi kegiatan diklat dan pelatihan yang telah kami selenggarakan di berbagai instansi." />
 
         <!-- Apa Kata Mereka Section (Testimonials Marquee) -->
         @if ($testimonials->isNotEmpty())
-            <section class="py-12 border-t border-white/5 bg-[#0b0e14]/40 overflow-hidden">
-                <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-6 text-center">
-                    <h2 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] bg-clip-text text-transparent font-[Poppins] mb-3">
-                        Apa Kata Mereka
-                    </h2>
-                    <p class="text-zinc-400 text-xs sm:text-sm">Ulasan dan kesan dari para peserta pelatihan SIAP Indonesia.</p>
-                </div>
-
-                @php
-                    $count = $testimonials->count();
-                    if ($count > 0) {
-                        $allTestimonials = $testimonials;
-                        while ($allTestimonials->count() < 8) {
-                            $allTestimonials = $allTestimonials->concat($testimonials);
-                        }
-                        $totalCount = $allTestimonials->count();
-                        $half = ceil($totalCount / 2);
-                        $row1 = $allTestimonials->take($half);
-                    } else {
-                        $row1 = collect();
-                    }
-                @endphp
-
-                <div class="w-full py-4">
-                    <div class="marquee-wrapper fade-edges-mask mb-6">
-                        <div class="marquee-container animate-marquee-right">
-                            @foreach ($row1 as $testimonial)
-                                <div class="testimonial-card">
-                                    <div class="flex flex-col justify-between h-full">
-                                        <div>
-                                            <div class="testimonial-stars">
-                                                @for ($i = 0; $i < 5; $i++)
-                                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                            <p class="testimonial-text mb-6">“{{ $testimonial->message }}”</p>
-                                        </div>
-                                        <div class="testimonial-header">
-                                            <img class="testimonial-avatar" src="{{ asset('storage/' . $testimonial->photo) }}" alt="{{ $testimonial->name }}">
-                                            <div class="testimonial-user-info">
-                                                <h4 class="testimonial-name">{{ $testimonial->name }}</h4>
-                                                <span class="testimonial-position">{{ $testimonial->position }}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                            {{-- Double items for infinite marquee loop --}}
-                            @foreach ($row1 as $testimonial)
-                                <div class="testimonial-card">
-                                    <div class="flex flex-col justify-between h-full">
-                                        <div>
-                                            <div class="testimonial-stars">
-                                                @for ($i = 0; $i < 5; $i++)
-                                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                            <p class="testimonial-text mb-6">“{{ $testimonial->message }}”</p>
-                                        </div>
-                                        <div class="testimonial-header">
-                                            <img class="testimonial-avatar" src="{{ asset('storage/' . $testimonial->photo) }}" alt="{{ $testimonial->name }}">
-                                            <div class="testimonial-user-info">
-                                                <h4 class="testimonial-name">{{ $testimonial->name }}</h4>
-                                                <span class="testimonial-position">{{ $testimonial->position }}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <x-testimonial />
         @endif
 
         <!-- Our Client Section -->
@@ -481,25 +390,40 @@
         @endif
 
         <!-- Hubungi Kami Call-to-Action Banner -->
-        <section class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-4 mt-2">
-            <div class="w-full bg-gradient-to-br from-yellow-600/20 via-yellow-900/10 to-transparent border border-yellow-500/20 rounded-[28px] p-6 sm:p-10 md:p-12 text-center space-y-6">
-                <h2 class="text-xl sm:text-2xl md:text-4xl font-extrabold text-white leading-tight font-[Poppins] px-2">
-                    Ingin Penyelenggaraan Kelas In-House / Bimtek Khusus?<br class="hidden sm:inline">Hubungi Kami Sekarang
-                </h2>
-                <p class="text-zinc-300 max-w-xl mx-auto text-xs sm:text-sm md:text-base px-2">
-                    Kami melayani pelatihan dengan silabus kustom yang disesuaikan dengan kebutuhan instansi Anda, baik secara daring maupun luring.
-                </p>
-                <a href="{{ $baseWaUrl }}?text=Halo%20Admin%20Siap%20Indonesia,%20saya%20tertarik%20untuk%20konsultasi%20pelatihan%20in-house%20/Bimtek" 
-                   target="_blank"
-                   class="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-lg transition-all duration-300 hover:scale-105">
-                   <i class="fab fa-whatsapp text-base sm:text-lg"></i> HUBUNGI KAMI
-                </a>
+        <section class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-16">
+            <div class="relative rounded-3xl bg-gradient-to-r from-slate-900 via-[#0f172a] to-slate-900 border border-[#c5a059]/30 p-8 sm:p-12 overflow-hidden shadow-2xl">
+                <!-- Background Ambient Lights -->
+                <div class="absolute -top-20 -right-20 w-80 h-80 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 space-y-3 text-center lg:text-left">
+                        <span class="px-3.5 py-1 bg-[#c5a059]/15 border border-[#c5a059]/30 text-[#d4b26f] rounded-full text-xs font-extrabold uppercase tracking-widest inline-flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                            In-House Training & Bimtek Khusus
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white font-[Poppins] tracking-tight leading-tight">
+                            Ingin Penyelenggaraan Kelas In-House / Bimtek Khusus?
+                        </h2>
+                        <p class="text-zinc-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                            Kami melayani pelatihan dengan silabus kustom yang disesuaikan dengan kebutuhan instansi Anda, baik secara daring maupun luring di seluruh wilayah Indonesia.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-4 flex justify-center lg:justify-end shrink-0">
+                        <a href="{{ $baseWaUrl }}?text=Halo%20Admin%20Siap%20Indonesia,%20saya%20tertarik%20untuk%20konsultasi%20pelatihan%20in-house%20/Bimtek" 
+                           target="_blank"
+                           class="px-8 py-4 bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] hover:from-[#edd1a1] hover:to-[#8a6109] text-slate-950 font-black text-xs uppercase tracking-wider rounded-full shadow-[0_10px_25px_-5px_rgba(197,160,89,0.4)] hover:scale-[1.03] transition-all duration-300 flex items-center gap-2.5">
+                           <i class="fab fa-whatsapp text-base"></i>
+                           <span>Hubungi Kami</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Beautiful Glassmorphic Detail Modal -->
         <div id="training-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
-            <div class="relative w-full max-w-2xl bg-[#0d111a]/95 border border-white/10 rounded-[32px] overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] flex flex-col md:flex-row transform scale-95 transition-all duration-300">
+            <div class="relative w-full max-w-2xl bg-slate-900/95 border border-white/10 rounded-[32px] overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] flex flex-col md:flex-row transform scale-95 transition-all duration-300">
                 <!-- Close Button -->
                 <button onclick="closeTrainingModal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center text-zinc-400 hover:text-white transition duration-200 cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -508,15 +432,15 @@
                 </button>
 
                 <!-- Left: Image -->
-                <div id="modal-img-container" class="w-full md:w-1/2 h-48 md:h-auto relative bg-slate-900 border-r border-white/5 flex-shrink-0 hidden">
+                <div id="modal-img-container" class="w-full md:w-1/2 h-48 md:h-auto relative bg-slate-950 border-r border-white/5 flex-shrink-0 hidden">
                     <img id="modal-thumbnail" src="" class="w-full h-full object-cover" alt="Training Thumbnail">
-                    <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent to-[#0d111a]/95"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent to-slate-900/95"></div>
                 </div>
 
                 <!-- Right: Details Content -->
                 <div class="flex-grow p-6 sm:p-8 flex flex-col justify-between">
                     <div class="space-y-4">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-yellow-500/10 border border-yellow-500/20 rounded-full text-[10px] font-extrabold tracking-wider text-yellow-400 uppercase">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#c5a059]/15 border border-[#c5a059]/30 rounded-full text-[10px] font-extrabold tracking-wider text-[#d4b26f] uppercase">
                             Detail Jadwal Pelatihan
                         </span>
                         
@@ -527,57 +451,57 @@
                         <div class="space-y-3 pt-2 text-xs sm:text-sm text-zinc-300">
                             <!-- Tanggal -->
                             <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-amber-500 shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#c5a059] shrink-0">
                                     <i class="far fa-calendar-alt text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Tanggal Pelaksanaan</p>
-                                    <p id="modal-date" class="font-semibold text-zinc-200"></p>
+                                    <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">Tanggal Pelaksanaan</p>
+                                    <p id="modal-date" class="font-semibold text-white"></p>
                                 </div>
                             </div>
 
                             <!-- Waktu -->
                             <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-amber-500 shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#c5a059] shrink-0">
                                     <i class="far fa-clock text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Waktu Pelaksanaan</p>
-                                    <p id="modal-time" class="font-semibold text-zinc-200"></p>
+                                    <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">Waktu Pelaksanaan</p>
+                                    <p id="modal-time" class="font-semibold text-white"></p>
                                 </div>
                             </div>
 
                             <!-- Tempat -->
                             <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-amber-500 shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#c5a059] shrink-0">
                                     <i class="fas fa-map-marker-alt text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Media / Tempat</p>
-                                    <p id="modal-location" class="font-semibold text-zinc-200"></p>
+                                    <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">Media / Tempat</p>
+                                    <p id="modal-location" class="font-semibold text-white"></p>
                                 </div>
                             </div>
 
                             <!-- Investasi -->
                             <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-amber-500 shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#c5a059] shrink-0">
                                     <i class="fas fa-wallet text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Biaya / Investasi</p>
-                                    <p id="modal-price" class="font-black text-amber-400"></p>
+                                    <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">Biaya / Investasi</p>
+                                    <p id="modal-price" class="font-black text-[#e6c687] text-base"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Footer Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-3 mt-6 border-t border-white/5 pt-4">
-                        <a id="modal-wa-btn" href="" target="_blank" class="flex-grow justify-center bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-white font-extrabold text-xs uppercase tracking-wider py-3 px-5 rounded-xl inline-flex items-center gap-2 shadow-lg shadow-emerald-500/10 transition-all duration-300 hover:scale-[1.02]">
+                    <div class="flex flex-col sm:flex-row gap-3 mt-6 border-t border-white/10 pt-4">
+                        <a id="modal-wa-btn" href="" target="_blank" class="flex-grow justify-center bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] text-slate-950 font-black text-xs uppercase tracking-wider py-3 px-5 rounded-xl inline-flex items-center gap-2 shadow-lg transition-all duration-300 hover:scale-[1.02]">
                             <i class="fab fa-whatsapp text-lg"></i>
                             Daftar Sekarang
                         </a>
-                        <button onclick="closeTrainingModal()" class="border border-white/10 hover:border-white/20 hover:bg-white/5 text-white font-bold text-xs uppercase tracking-wider py-3 px-5 rounded-xl transition duration-300 cursor-pointer">
+                        <button onclick="closeTrainingModal()" class="border border-white/15 hover:border-white/30 hover:bg-white/5 text-white font-bold text-xs uppercase tracking-wider py-3 px-5 rounded-xl transition duration-300 cursor-pointer">
                             Lihat Nanti
                         </button>
                     </div>
@@ -594,7 +518,6 @@
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('css/filament/style.css') }}">
     <style>
-        /* Prevent slick partner logos from stretching */
         .partner-slick-slider img {
             width: auto !important;
             display: inline-block !important;

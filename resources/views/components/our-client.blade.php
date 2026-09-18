@@ -4,18 +4,16 @@
 ])
 
 @php
-    $partnersRow1 = $partners->where('row_position', 1);
-    $partnersRow2 = $partners->where('row_position', 2);
+    $partnersRow1 = $partners->where('row_position', 1)->values();
+    $partnersRow2 = $partners->where('row_position', 2)->values();
 
     // Fallback if seeder or database didn't assign row positions: split evenly
     if ($partnersRow1->isEmpty() && $partnersRow2->isEmpty() && $partners->isNotEmpty()) {
         $half = ceil($partners->count() / 2);
-        $partnersRow1 = $partners->take($half);
-        $partnersRow2 = $partners->skip($half);
+        $partnersRow1 = $partners->take($half)->values();
+        $partnersRow2 = $partners->skip($half)->values();
     }
 
-    // Duplicate content to ensure it is wide enough to loop seamlessly without stretching
-    // We repeat the items so that even with 3 items, the track has plenty of cards
     $repeatCount = 1;
     if ($partners->isNotEmpty()) {
         $count = $partners->count();
@@ -25,6 +23,13 @@
             $repeatCount = 2;
         }
     }
+
+    $accentStyles = [
+        'border-t-2 border-t-amber-500/90 shadow-[0_-3px_10px_rgba(245,158,11,0.2)]',
+        'border-t-2 border-t-blue-500/90 shadow-[0_-3px_10px_rgba(59,130,246,0.2)]',
+        'border-t-2 border-t-emerald-500/90 shadow-[0_-3px_10px_rgba(16,185,129,0.2)]',
+        'border-t-2 border-t-purple-500/90 shadow-[0_-3px_10px_rgba(168,85,247,0.2)]',
+    ];
 @endphp
 
 <section class="oc-section relative w-full overflow-hidden">
@@ -40,14 +45,14 @@
             <div class="space-y-3">
                 <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full oc-badge">
                     <span class="oc-badge-dot" aria-hidden="true"></span>
-                    <span class="oc-badge-text">500+ Mitra Instansi</span>
+                    <span class="oc-badge-text">500+ Mitra Instansi Resmi</span>
                 </div>
                 <h2 class="oc-heading">
                     Dipercaya oleh <br class="hidden sm:block"/>
                     <span class="oc-heading-gradient">Ribuan Instansi</span>
                 </h2>
                 <p class="oc-subtext">
-                    Dari kementerian, BUMN, pemerintah daerah, hingga korporasi swasta — kami hadir untuk mereka.
+                    Dari kementerian, BUMN, pemerintah daerah, hingga korporasi swasta — kami hadir untuk mendampingi akselerasi SDM unggul.
                 </p>
             </div>
 
@@ -77,15 +82,23 @@
                     <!-- Group 1 -->
                     <div class="oc-marquee-group">
                         @for ($i = 0; $i < $repeatCount; $i++)
-                            @foreach ($partnersRow1 as $partner)
+                            @foreach ($partnersRow1 as $index => $partner)
+                            @php
+                                $accent = $accentStyles[$index % count($accentStyles)];
+                            @endphp
                             <div class="oc-card">
-                                <div class="oc-card-inner">
+                                <div class="oc-card-inner {{ $accent }}">
                                     <img
                                         src="{{ asset('storage/' . $partner->logo_path) }}"
                                         alt="{{ $partner->alt_text ?? $partner->name }}"
                                         class="oc-logo"
                                         loading="eager"
                                         draggable="false" />
+                                    @if($partner->name)
+                                        <span class="text-[10px] sm:text-[11px] font-bold text-slate-700 group-hover:text-slate-900 leading-tight text-center truncate max-w-full px-1">
+                                            {{ $partner->name }}
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             @endforeach
@@ -94,15 +107,23 @@
                     <!-- Group 2 (Duplicate for Seamless Loop) -->
                     <div class="oc-marquee-group" aria-hidden="true">
                         @for ($i = 0; $i < $repeatCount; $i++)
-                            @foreach ($partnersRow1 as $partner)
+                            @foreach ($partnersRow1 as $index => $partner)
+                            @php
+                                $accent = $accentStyles[$index % count($accentStyles)];
+                            @endphp
                             <div class="oc-card">
-                                <div class="oc-card-inner">
+                                <div class="oc-card-inner {{ $accent }}">
                                     <img
                                         src="{{ asset('storage/' . $partner->logo_path) }}"
                                         alt="{{ $partner->alt_text ?? $partner->name }}"
                                         class="oc-logo"
                                         loading="eager"
                                         draggable="false" />
+                                    @if($partner->name)
+                                        <span class="text-[10px] sm:text-[11px] font-bold text-slate-700 group-hover:text-slate-900 leading-tight text-center truncate max-w-full px-1">
+                                            {{ $partner->name }}
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             @endforeach
@@ -119,15 +140,23 @@
                     <!-- Group 1 -->
                     <div class="oc-marquee-group">
                         @for ($i = 0; $i < $repeatCount; $i++)
-                            @foreach ($partnersRow2 as $partner)
+                            @foreach ($partnersRow2 as $index => $partner)
+                            @php
+                                $accent = $accentStyles[($index + 2) % count($accentStyles)];
+                            @endphp
                             <div class="oc-card">
-                                <div class="oc-card-inner">
+                                <div class="oc-card-inner {{ $accent }}">
                                     <img
                                         src="{{ asset('storage/' . $partner->logo_path) }}"
                                         alt="{{ $partner->alt_text ?? $partner->name }}"
                                         class="oc-logo"
                                         loading="eager"
                                         draggable="false" />
+                                    @if($partner->name)
+                                        <span class="text-[10px] sm:text-[11px] font-bold text-slate-700 group-hover:text-slate-900 leading-tight text-center truncate max-w-full px-1">
+                                            {{ $partner->name }}
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             @endforeach
@@ -136,15 +165,23 @@
                     <!-- Group 2 (Duplicate for Seamless Loop) -->
                     <div class="oc-marquee-group" aria-hidden="true">
                         @for ($i = 0; $i < $repeatCount; $i++)
-                            @foreach ($partnersRow2 as $partner)
+                            @foreach ($partnersRow2 as $index => $partner)
+                            @php
+                                $accent = $accentStyles[($index + 2) % count($accentStyles)];
+                            @endphp
                             <div class="oc-card">
-                                <div class="oc-card-inner">
+                                <div class="oc-card-inner {{ $accent }}">
                                     <img
                                         src="{{ asset('storage/' . $partner->logo_path) }}"
                                         alt="{{ $partner->alt_text ?? $partner->name }}"
                                         class="oc-logo"
                                         loading="eager"
                                         draggable="false" />
+                                    @if($partner->name)
+                                        <span class="text-[10px] sm:text-[11px] font-bold text-slate-700 group-hover:text-slate-900 leading-tight text-center truncate max-w-full px-1">
+                                            {{ $partner->name }}
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             @endforeach
@@ -161,32 +198,32 @@
 
 <style>
 /* ============================================================
-   OUR CLIENT — Premium Infinite Marquee (CSS Powered)
+   OUR CLIENT — Soft Off-White Eye-Comfortable Compact Cards
    ============================================================ */
 
 .oc-section {
-    background: linear-gradient(180deg, #07090f 0%, #0a0d18 50%, #07090f 100%);
+    background: linear-gradient(180deg, #07090f 0%, #0b0f19 50%, #07090f 100%);
     position: relative;
 }
 
 .oc-bg-glow {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 550px;
+    height: 550px;
     border-radius: 50%;
-    filter: blur(130px);
+    filter: blur(140px);
     pointer-events: none;
     z-index: 0;
 }
 .oc-bg-glow--left {
     top: -100px;
     left: -150px;
-    background: radial-gradient(circle, rgba(197,160,89,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(197,160,89,0.1) 0%, transparent 70%);
 }
 .oc-bg-glow--right {
     bottom: -100px;
     right: -150px;
-    background: radial-gradient(circle, rgba(79,70,229,0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
 }
 
 .oc-grid-overlay {
@@ -202,8 +239,8 @@
 
 /* --- Badge --- */
 .oc-badge {
-    background: rgba(197, 160, 89, 0.08);
-    border: 1px solid rgba(197, 160, 89, 0.2);
+    background: rgba(197, 160, 89, 0.1);
+    border: 1px solid rgba(197, 160, 89, 0.25);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
@@ -266,7 +303,7 @@
     padding: 0.65rem 1.5rem;
     border-radius: 9999px;
     border: 1px solid rgba(197, 160, 89, 0.35);
-    background: rgba(197, 160, 89, 0.04);
+    background: rgba(197, 160, 89, 0.05);
     color: #c5a059;
     font-size: 0.75rem;
     font-weight: 700;
@@ -301,11 +338,10 @@
     width: 100%;
     user-select: none;
     position: relative;
-    padding: 12px 0; /* Add vertical padding so hovered cards don't get clipped */
-    margin: -12px 0;  /* Offset padding to keep layout spacing intact */
-    /* Perfect precise edge fade using CSS masks */
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, transparent 100%);
+    padding: 14px 0;
+    margin: -14px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, transparent 100%);
 }
 
 .oc-marquee-track {
@@ -316,117 +352,117 @@
 .oc-marquee-group {
     display: flex;
     align-items: center;
-    gap: 2.5rem; /* Larger gap for premium look */
-    padding-right: 2.5rem;
+    gap: 1.25rem;
+    padding-right: 1.25rem;
     flex-shrink: 0;
 }
 
-/* LTR Direction (Left to Right) */
 .oc-marquee-track-ltr {
-    animation: oc-marquee-ltr 32s linear infinite;
+    animation: oc-marquee-ltr 34s linear infinite;
 }
 
-/* RTL Direction (Right to Left) */
 .oc-marquee-track-rtl {
-    animation: oc-marquee-rtl 32s linear infinite;
+    animation: oc-marquee-rtl 34s linear infinite;
 }
 
-/* Pause scroll on hover */
 .oc-marquee-row:hover .oc-marquee-track {
     animation-play-state: paused;
 }
 
-/* --- Cards --- */
+/* --- Cards (Compact Soft Off-White Eye-Comfortable Styling) --- */
 .oc-card {
     flex-shrink: 0;
-    width: 180px; /* Larger cards */
-    height: 100px;
+    width: 145px;
+    height: 95px;
 }
 @media (min-width: 640px) {
-    .oc-card { width: 220px; height: 110px; }
+    .oc-card { width: 165px; height: 105px; }
 }
 @media (min-width: 1024px) {
-    .oc-card { width: 260px; height: 125px; }
+    .oc-card { width: 185px; height: 110px; }
 }
 
 .oc-card-inner {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.2rem 2rem;
-    border-radius: 20px; /* More rounded premium corners */
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    gap: 0.35rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 18px;
+    /* Soft Off-White Light Slate Gradient - Eye Comfortable */
+    background: linear-gradient(145deg, rgba(248, 250, 252, 0.96) 0%, rgba(241, 245, 249, 0.92) 100%);
+    border: 1px solid rgba(226, 232, 240, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 
+        0 8px 20px -4px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
 }
+
+/* Subtle Shimmer Sheen Effect on Hover */
 .oc-card-inner::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 50%;
-    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 100%);
-    border-radius: 20px 20px 0 0;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
+    transition: left 0.75s ease;
     pointer-events: none;
 }
+
+.oc-card-inner:hover::before {
+    left: 100%;
+}
+
 .oc-card-inner:hover {
-    background: rgba(197, 160, 89, 0.08);
-    border-color: rgba(197, 160, 89, 0.3);
+    background: #ffffff;
+    border-color: rgba(197, 160, 89, 0.5);
     box-shadow:
-        0 0 0 1px rgba(197, 160, 89, 0.15),
-        0 12px 35px rgba(0, 0, 0, 0.45),
-        0 0 25px rgba(197, 160, 89, 0.08);
-    transform: translateY(-4px) scale(1.03);
+        0 14px 30px -5px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(197, 160, 89, 0.25),
+        inset 0 0 0 1px rgba(197, 160, 89, 0.3);
+    transform: translateY(-5px) scale(1.04);
 }
 
 /* --- Logos --- */
 .oc-logo {
-    max-height: 48px; /* Larger image height */
-    max-width: 130px;
+    max-height: 40px;
+    max-width: 115px;
     width: auto;
     height: auto;
     object-fit: contain;
-    opacity: 0.85;
-    filter: brightness(1.05) contrast(0.95);
-    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+    filter: drop-shadow(0 1.5px 3px rgba(0, 0, 0, 0.08));
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
     user-select: none;
     pointer-events: none;
     -webkit-user-drag: none;
 }
 @media (min-width: 640px) {
-    .oc-logo { max-height: 58px; max-width: 160px; }
+    .oc-logo { max-height: 44px; max-width: 130px; }
 }
 @media (min-width: 1024px) {
-    .oc-logo { max-height: 68px; max-width: 200px; }
+    .oc-logo { max-height: 48px; max-width: 145px; }
 }
+
 .oc-card-inner:hover .oc-logo {
-    opacity: 1;
-    filter: brightness(1.15) contrast(1);
     transform: scale(1.06);
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.15));
 }
 
 /* --- Keyframe Animations --- */
 @keyframes oc-marquee-ltr {
-    0% {
-        transform: translateX(-50%);
-    }
-    100% {
-        transform: translateX(0%);
-    }
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
 }
 
 @keyframes oc-marquee-rtl {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
 }
 
 @keyframes oc-pulse {
@@ -434,7 +470,6 @@
     50%       { opacity: 0.6; box-shadow: 0 0 16px rgba(197,160,89,0.3); }
 }
 
-/* --- Reduced motion fallback --- */
 @media (prefers-reduced-motion: reduce) {
     .oc-marquee-track { animation: none !important; }
 }

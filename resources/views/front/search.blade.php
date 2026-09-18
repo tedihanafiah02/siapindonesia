@@ -36,27 +36,30 @@
 
         <!-- Heading & Search Input Section -->
         <section id="heading" class="container mx-auto px-5 lg:px-20 flex items-center flex-col gap-6 mt-10">
-            <div class="text-center flex flex-col items-center gap-1.5">
-                <span class="news-badge bg-amber-500/10 text-amber-400 border-amber-500/20">
-                    Pencarian Berita
+            <div class="text-center flex flex-col items-center gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 bg-[#c5a059]/10 border border-[#c5a059]/30 rounded-full text-xs font-bold text-[#d4b26f] uppercase tracking-widest">
+                    Pencarian Berita & Informasi
                 </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mt-1">
-                    Cari Berita Terkini
+                <h1 class="text-3xl md:text-5xl font-black bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] bg-clip-text text-transparent font-[Poppins] tracking-tight leading-tight mt-1">
+                    Cari Berita & Program Terkini
                 </h1>
             </div>
 
-            <form action="{{ route('front.search') }}" method="GET" class="w-full max-w-[550px]">
+            <form action="{{ route('front.search') }}" method="GET" class="w-full max-w-[580px]">
                 <label for="search-bar"
-                    class="w-full flex items-center px-5 py-3.5 transition-all duration-300 gap-3 border border-white/5 bg-slate-900/40 focus-within:border-amber-500/40 focus-within:ring-2 focus-within:ring-amber-500/10 rounded-full group shadow-2xl backdrop-blur-md">
-                    <div class="w-5 h-5 flex items-center justify-center text-zinc-400 group-focus-within:text-amber-500 transition-colors">
+                    class="w-full flex items-center px-5 py-3 transition-all duration-300 gap-3 border border-[#c5a059]/30 bg-slate-950/80 focus-within:border-[#c5a059] focus-within:ring-2 focus-within:ring-[#c5a059]/25 focus-within:shadow-[0_0_30px_rgba(197,160,89,0.2)] rounded-full group shadow-2xl backdrop-blur-xl">
+                    <div class="w-5 h-5 flex items-center justify-center text-zinc-400 group-focus-within:text-[#d4b26f] transition-colors shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-full h-full">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.602 10.602Z" />
                         </svg>
                     </div>
                     <input autocomplete="off" type="text" id="search-bar" name="keyword"
-                        placeholder="Ketik kata kunci berita..."
+                        placeholder="Ketik kata kunci berita atau topik pelatihan..."
                         value="{{ $keyword }}"
-                        class="bg-transparent border-none text-zinc-100 placeholder:text-zinc-500 text-sm outline-none focus:ring-0 w-full" />
+                        class="bg-transparent border-none text-zinc-100 placeholder:text-zinc-500 text-sm outline-none focus:ring-0 w-full font-medium" />
+                    <button type="submit" class="px-5 py-2 bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] text-slate-950 font-black text-xs uppercase tracking-wider rounded-full shadow-md hover:scale-105 transition-all shrink-0">
+                        Cari
+                    </button>
                 </label>
             </form>
         </section>

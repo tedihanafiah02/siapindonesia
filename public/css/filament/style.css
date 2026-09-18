@@ -144,43 +144,31 @@ body {
     }
 }
 
-/* Nav Link Hover Underline Slide */
+/* Nav Link */
 .nav-link-custom {
     position: relative;
-    color: #cbd5e1;
+    color: #94a3b8;
     font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
-    padding: 0.5rem 0;
-    display: inline-block;
+    font-size: 0.85rem;
+    transition: color 0.25s ease, transform 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    white-space: nowrap;
 }
 
 .nav-link-custom::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
+    display: none !important;
+    content: none !important;
 }
 
 .nav-link-custom:hover {
-    color: var(--primary-color) !important;
-}
-
-.nav-link-custom:hover::after {
-    width: 100%;
+    color: #f3e3be !important;
 }
 
 .nav-link-custom.active-link {
-    color: var(--primary-color) !important;
-    font-weight: 700;
-}
-
-.nav-link-custom.active-link::after {
-    width: 100%;
+    color: #d4b26f !important;
+    font-weight: 600;
 }
 
 /* Dropdown Button */

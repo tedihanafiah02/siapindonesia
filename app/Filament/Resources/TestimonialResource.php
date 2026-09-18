@@ -54,10 +54,18 @@ class TestimonialResource extends Resource
 
                 Forms\Components\TextInput::make('video_url')
                     ->label('Link Video YouTube')
-                    ->helperText('Contoh: https://www.youtube.com/watch?v=xxxx atau https://youtu.be/xxxx (Biarkan kosong jika testimoni tertulis biasa)')
+                    ->helperText('Contoh: https://www.youtube.com/watch?v=xxxx atau https://youtu.be/xxxx (Biarkan kosong jika menggunakan file video langsung atau testimoni teks)')
                     ->url()
                     ->nullable()
                     ->maxLength(255),
+
+                Forms\Components\FileUpload::make('video_file')
+                    ->label('Upload File Video (MP4 / WebM)')
+                    ->acceptedFileTypes(['video/mp4', 'video/webm', 'video/ogg', 'video/quicktime'])
+                    ->maxSize(51200)
+                    ->directory('testimonials/videos')
+                    ->visibility('public')
+                    ->helperText('Alternatif jika video di-host langsung di server sendiri (kebal blokir jaringan/firewall). Format: MP4/WebM.'),
             ]);
     }
 
@@ -90,11 +98,11 @@ class TestimonialResource extends Resource
                     ->formatStateUsing(fn (int $state): string => "Baris $state")
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('video_url')
+                Tables\Columns\TextColumn::make('video_status')
                     ->label('Video')
                     ->badge()
-                    ->color('success')
-                    ->formatStateUsing(fn (?string $state): string => $state ? 'Ada Video' : 'Teks Saja'),
+                    ->color(fn ($record): string => ($record->video_file || $record->video_url) ? 'success' : 'gray')
+                    ->getStateUsing(fn ($record): string => $record->video_file ? 'File MP4' : ($record->video_url ? 'YouTube' : 'Teks Saja')),
 
                 Tables\Columns\TextColumn::make('message')
                     ->label('Pesan')

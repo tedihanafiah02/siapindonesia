@@ -123,7 +123,8 @@ class FrontController extends Controller
 
             // Otherwise, render the custom detail page if has_page is enabled
             if ($menu->has_page) {
-                return view('front.program.custom_detail', compact('menu'));
+                $partners = cache()->rememberForever('all_partners', fn() => \App\Models\Partner::all());
+                return view('front.program.custom_detail', compact('menu', 'partners'));
             }
         }
         abort(404);

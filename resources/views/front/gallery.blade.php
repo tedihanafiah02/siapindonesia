@@ -26,12 +26,12 @@
             <div class="absolute inset-0 bg-gradient-to-b from-[#0b0e14]/90 via-[#0b0e14]/50 to-[#0b0e14] z-0"></div>
             
             <div class="relative text-center text-zinc-100 z-10 max-w-2xl px-4 mt-0">
-                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 bg-yellow-500/10 border border-yellow-500/20 rounded-full text-[10px] font-extrabold tracking-wider text-yellow-400 uppercase mb-4">
-                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-500 animate-pulse"></span>
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 bg-[#c5a059]/10 border border-[#c5a059]/30 rounded-full text-[10px] font-extrabold tracking-wider text-[#d4b26f] uppercase mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#c5a059] animate-pulse"></span>
                     Dokumentasi Visual
                 </span>
                 <h1 class="text-3xl sm:text-4xl md:text-6xl font-black font-[Poppins] tracking-tight text-white leading-none">
-                    Galeri <span class="bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 bg-clip-text text-transparent">Kegiatan</span>
+                    Galeri <span class="bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] bg-clip-text text-transparent">Kegiatan</span>
                 </h1>
                 <p class="text-zinc-300 mt-3 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg mx-auto">
                     Dokumentasi pelaksanaan kegiatan diklat, bimbingan teknis (bimtek), dan in-house training oleh Siap Indonesia.
@@ -48,8 +48,11 @@
                 
                 <!-- Left Column: Gallery Grid (8 cols) -->
                 <div class="lg:col-span-8 order-1 space-y-8">
-                    <div class="border-l-4 border-yellow-500 pl-4 py-1">
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white font-[Poppins] tracking-tight">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#c5a059]/10 border border-[#c5a059]/30 rounded-full text-xs font-bold text-[#d4b26f] uppercase tracking-widest mb-2">
+                            Dokumentasi Resmi
+                        </span>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-[#e6c687] via-[#d4b26f] to-[#aa7c11] bg-clip-text text-transparent font-[Poppins] tracking-tight">
                             Galeri Dokumentasi
                         </h2>
                     </div>
@@ -68,17 +71,17 @@
                     @else
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                             @foreach ($galleries as $gallery)
-                                <div class="group relative overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 shadow-lg hover:shadow-[0_8px_30px_rgba(250,204,21,0.15)] hover:border-yellow-500/25 transition-all duration-500 transform hover:-translate-y-1.5 aspect-[4/3] cursor-pointer">
+                                <div class="group relative overflow-hidden rounded-[24px] border border-white/10 bg-slate-900/50 shadow-xl hover:shadow-[0_12px_40px_rgba(197,160,89,0.18)] hover:border-[#c5a059]/50 transition-all duration-500 transform hover:-translate-y-1.5 aspect-[4/3] cursor-pointer">
                                     <a data-fancybox="gallery" href="{{ asset('storage/' . $gallery->image_path) }}" data-caption="{{ $gallery->alt_text }}">
                                         <!-- Image -->
-                                        <img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" 
+                                        <img class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out" 
                                              src="{{ asset('storage/' . $gallery->image_path) }}" 
                                              alt="{{ $gallery->alt_text }}" />
                                         
-                                        <!-- Elegant Dark Overlay -->
-                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 z-10">
+                                        <!-- Soft Dark Overlay -->
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 z-10">
                                             <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-[9px] font-bold text-yellow-400 uppercase tracking-widest mb-2">
+                                                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#c5a059]/20 border border-[#c5a059]/40 rounded-full text-[9px] font-bold text-[#d4b26f] uppercase tracking-widest mb-2 shadow-sm">
                                                     Dokumentasi
                                                 </span>
                                                 <p class="text-xs font-bold text-white line-clamp-2 leading-snug font-[Poppins]">
@@ -88,8 +91,8 @@
                                         </div>
                                         
                                         <!-- Zoom Icon Tag -->
-                                        <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-md z-10">
-                                            <i class="fas fa-search-plus text-xs text-yellow-500"></i>
+                                        <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-md z-20">
+                                            <i class="fas fa-search-plus text-xs text-[#d4b26f]"></i>
                                         </div>
                                     </a>
                                 </div>
@@ -108,37 +111,37 @@
                         </h3>
                         <ul class="space-y-2">
                             <li>
-                                <a href="{{ route('front.beranda') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-zinc-400 hover:text-yellow-400 hover:bg-white/5 transition duration-300">
+                                <a href="{{ route('front.beranda') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-zinc-400 hover:text-[#d4b26f] hover:bg-white/5 transition duration-300">
                                     <i class="fas fa-home text-sm w-5 text-center"></i>
                                     <span>Beranda</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('front.profil') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-zinc-400 hover:text-yellow-400 hover:bg-white/5 transition duration-300">
+                                <a href="{{ route('front.profil') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-zinc-400 hover:text-[#d4b26f] hover:bg-white/5 transition duration-300">
                                     <i class="fas fa-user text-sm w-5 text-center"></i>
                                     <span>Profil Lembaga</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('front.visimisi') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-zinc-400 hover:text-yellow-400 hover:bg-white/5 transition duration-300">
+                                <a href="{{ route('front.visimisi') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-zinc-400 hover:text-[#d4b26f] hover:bg-white/5 transition duration-300">
                                     <i class="fas fa-bullseye text-sm w-5 text-center"></i>
                                     <span>Visi & Misi</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('front.partner') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-zinc-400 hover:text-yellow-400 hover:bg-white/5 transition duration-300">
+                                <a href="{{ route('front.partner') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-zinc-400 hover:text-[#d4b26f] hover:bg-white/5 transition duration-300">
                                     <i class="fas fa-handshake text-sm w-5 text-center"></i>
                                     <span>Our Client</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('front.gallery') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-yellow-500/10 to-amber-500/5 border border-yellow-500/20 text-yellow-400 font-bold">
+                                <a href="{{ route('front.gallery') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#c5a059]/20 to-amber-500/10 border border-[#c5a059]/30 text-[#d4b26f] font-bold">
                                     <i class="fas fa-images text-sm w-5 text-center"></i>
                                     <span>Galeri Kegiatan</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('front.index') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-zinc-400 hover:text-yellow-400 hover:bg-white/5 transition duration-300">
+                                <a href="{{ route('front.index') }}" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-zinc-400 hover:text-[#d4b26f] hover:bg-white/5 transition duration-300">
                                     <i class="fas fa-newspaper text-sm w-5 text-center"></i>
                                     <span>Berita Terkini</span>
                                 </a>
@@ -147,8 +150,8 @@
                     </div>
 
                     <!-- Hubungi Konsultan WA Card -->
-                    <div class="bg-gradient-to-br from-yellow-600/10 via-yellow-900/5 to-transparent border border-yellow-500/20 shadow-xl rounded-2xl p-6 text-center relative overflow-hidden group">
-                        <div class="absolute -right-10 -top-10 w-24 h-24 bg-yellow-500/5 rounded-full blur-2xl group-hover:bg-yellow-500/10 transition duration-500"></div>
+                    <div class="bg-gradient-to-br from-[#c5a059]/15 via-slate-900/40 to-transparent border border-[#c5a059]/20 shadow-xl rounded-2xl p-6 text-center relative overflow-hidden group">
+                        <div class="absolute -right-10 -top-10 w-24 h-24 bg-[#c5a059]/10 rounded-full blur-2xl group-hover:bg-[#c5a059]/20 transition duration-500"></div>
                         <h3 class="text-base sm:text-lg font-bold text-zinc-100 mb-2 font-[Poppins]">Hubungi Konsultan Kami</h3>
                         <p class="text-xs text-zinc-400 mb-5 leading-relaxed">Konsultasikan kebutuhan diklat, bimtek khusus, atau in-house training instansi Anda secara gratis.</p>
                         <a href="{{ $baseWaUrl }}?text=Halo%20Admin%20Siap%20Indonesia,%20saya%20tertarik%20untuk%20konsultasi%20galeri%20dan%20pelatihan" target="_blank"
